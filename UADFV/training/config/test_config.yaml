@@ -1,0 +1,8 @@
+mode: val
+lmdb: True
+dataset_root_rgb: './datasets'
+lmdb_dir:  'I:\transform_2_lmdb'
+dataset_json_folder: /data/Btask/DeepfakeBench/preprocessing/dataset_json  #我增加了一行
+manualSeed: 1024
+cuda: true   # whether to use CUDA acceleration
+cudnn: true   # whether to use CuDNN for convolution operations

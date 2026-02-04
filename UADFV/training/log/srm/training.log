@@ -1,0 +1,850 @@
+2025-05-15 09:36:02,213 - INFO - Save log to /data/Btask/DeepfakeBench/training/log/srm
+2025-05-15 09:36:02,213 - INFO - --------------- Configuration ---------------
+2025-05-15 09:36:02,213 - INFO - Parameters: 
+log_dir: /data/Btask/DeepfakeBench/training/log/srm
+pretrained: /data/Btask/DeepfakeBench/training/weights/srm_best.pth
+model_name: srm
+backbone_name: xception
+backbone_config: {'num_classes': 2, 'inc': 3, 'dropout': False, 'mode': 'original'}
+all_dataset: ['FaceForensics++', 'FF-F2F', 'FF-DF', 'FF-FS', 'FF-NT', 'FaceShifter', 'DeepFakeDetection', 'Celeb-DF-v1', 'Celeb-DF-v2', 'DFDCP', 'DFDC', 'DeeperForensics-1.0', 'UADFV', 'Roop', 'Race']
+train_dataset: ['FaceForensics++']
+test_dataset: ['UADFV']
+compression: c23
+train_batchSize: 32
+test_batchSize: 100
+workers: 8
+frame_num: {'train': 32, 'test': 100}
+resolution: 256
+with_mask: False
+with_landmark: False
+save_ckpt: True
+save_feat: True
+dataset_json_folder: /data/Btask/DeepfakeBench/preprocessing/dataset_json
+use_data_augmentation: False
+data_aug: {'flip_prob': 0.5, 'rotate_prob': 0.5, 'rotate_limit': [-10, 10], 'blur_prob': 0.5, 'blur_limit': [3, 7], 'brightness_prob': 0.5, 'brightness_limit': [-0.1, 0.1], 'contrast_limit': [-0.1, 0.1], 'quality_lower': 40, 'quality_upper': 100}
+mean: [0.5, 0.5, 0.5]
+std: [0.5, 0.5, 0.5]
+optimizer: {'type': 'adam', 'adam': {'lr': 0.0002, 'beta1': 0.9, 'beta2': 0.999, 'eps': 1e-08, 'weight_decay': 0.0005, 'amsgrad': False}, 'sgd': {'lr': 0.0002, 'momentum': 0.9, 'weight_decay': 0.0005}}
+lr_scheduler: None
+nEpochs: 10
+start_epoch: 0
+save_epoch: 1
+rec_iter: 100
+logdir: ./logs
+manualSeed: 1024
+loss_func: am_softmax
+losstype: None
+metric_scoring: auc
+label_dict: {'DFD_fake': 1, 'DFD_real': 0, 'FF-SH': 1, 'FF-F2F': 1, 'FF-DF': 1, 'FF-FS': 1, 'FF-NT': 1, 'FF-FH': 1, 'FF-real': 0, 'CelebDFv1_real': 0, 'CelebDFv1_fake': 1, 'CelebDFv2_real': 0, 'CelebDFv2_fake': 1, 'DFDCP_Real': 0, 'DFDCP_FakeA': 1, 'DFDCP_FakeB': 1, 'DFDC_Fake': 1, 'DFDC_Real': 0, 'DF_fake': 1, 'DF_real': 0, 'UADFV_Fake': 1, 'UADFV_Real': 0, 'roop_Real': 0, 'roop_Fake': 1, '1Raw': 0, '2Changed': 1}
+cuda: True
+cudnn: True
+mode: train
+lmdb: False
+dry_run: False
+dataset_root_rgb: ./datasets
+lmdb_dir: I:\transform_2_lmdb
+SWA: False
+local_rank: 0
+ddp: False
+
+2025-05-15 09:36:07,096 - INFO - Load pretrained model from /data/Btask/DeepfakeBench/training/weights/srm_best.pth
+2025-05-15 09:36:07,401 - INFO - Load pretrained model from /data/Btask/DeepfakeBench/training/weights/srm_best.pth
+2025-05-15 09:36:07,628 - INFO - ===> Epoch[0] start!
+2025-05-15 09:36:08,041 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 09:36:17,058 - INFO - Iter: 0    training-loss, overall: 16.43426513671875    
+2025-05-15 09:36:17,066 - INFO - Iter: 0    training-metric, acc: 0.125    training-metric, auc: 0.24107142857142855    training-metric, eer: 0.75    training-metric, ap: 0.7923508410661992    
+2025-05-15 09:38:18,630 - INFO - Iter: 300    training-loss, overall: 6.562497138977051    
+2025-05-15 09:38:18,632 - INFO - Iter: 300    training-metric, acc: 0.7925    training-metric, auc: 0.6894722342696861    training-metric, eer: 0.3547965737965741    training-metric, ap: 0.896051815128242    
+2025-05-15 09:40:21,582 - INFO - Iter: 600    training-loss, overall: 6.12493371963501    
+2025-05-15 09:40:21,582 - INFO - Iter: 600    training-metric, acc: 0.7902083333333333    training-metric, auc: 0.7524802731696691    training-metric, eer: 0.31178463203463236    training-metric, ap: 0.920068153515999    
+2025-05-15 09:42:25,541 - INFO - Iter: 900    training-loss, overall: 6.198834419250488    
+2025-05-15 09:42:25,542 - INFO - Iter: 900    training-metric, acc: 0.7878125    training-metric, auc: 0.7707528487728158    training-metric, eer: 0.2983025892724891    training-metric, ap: 0.9268316832751897    
+2025-05-15 09:44:28,641 - INFO - Iter: 1200    training-loss, overall: 6.008979320526123    
+2025-05-15 09:44:28,642 - INFO - Iter: 1200    training-metric, acc: 0.795625    training-metric, auc: 0.7764694821040465    training-metric, eer: 0.2892011784511786    training-metric, ap: 0.9306207945484514    
+2025-05-15 09:46:34,233 - INFO - Iter: 1500    training-loss, overall: 5.814698219299316    
+2025-05-15 09:46:34,234 - INFO - Iter: 1500    training-metric, acc: 0.8016666666666666    training-metric, auc: 0.807959380726561    training-metric, eer: 0.25632914307914345    training-metric, ap: 0.9410416554134935    
+2025-05-15 09:48:37,218 - INFO - Iter: 1800    training-loss, overall: 5.6312994956970215    
+2025-05-15 09:48:37,219 - INFO - Iter: 1800    training-metric, acc: 0.81125    training-metric, auc: 0.8164269701659492    training-metric, eer: 0.25932077182077223    training-metric, ap: 0.9423850747184253    
+2025-05-15 09:50:38,871 - INFO - Iter: 2100    training-loss, overall: 5.287179470062256    
+2025-05-15 09:50:38,872 - INFO - Iter: 2100    training-metric, acc: 0.824375    training-metric, auc: 0.8342022980869364    training-metric, eer: 0.24897737447737478    training-metric, ap: 0.9493866427813752    
+2025-05-15 09:52:43,549 - INFO - Iter: 2400    training-loss, overall: 5.056519031524658    
+2025-05-15 09:52:43,551 - INFO - Iter: 2400    training-metric, acc: 0.8329166666666666    training-metric, auc: 0.8560412022990317    training-metric, eer: 0.2174235024235026    training-metric, ap: 0.9533266358718506    
+2025-05-15 09:54:48,597 - INFO - Iter: 2700    training-loss, overall: 4.94596004486084    
+2025-05-15 09:54:48,599 - INFO - Iter: 2700    training-metric, acc: 0.8378125    training-metric, auc: 0.8622203842628414    training-metric, eer: 0.2156501554001555    training-metric, ap: 0.9566542175498337    
+2025-05-15 09:56:50,509 - INFO - Iter: 3000    training-loss, overall: 4.541512966156006    
+2025-05-15 09:56:50,510 - INFO - Iter: 3000    training-metric, acc: 0.8528125    training-metric, auc: 0.8693114252685482    training-metric, eer: 0.20219092019092033    training-metric, ap: 0.9576294132623927    
+2025-05-15 09:58:53,182 - INFO - Iter: 3300    training-loss, overall: 4.426823139190674    
+2025-05-15 09:58:53,183 - INFO - Iter: 3300    training-metric, acc: 0.8545833333333334    training-metric, auc: 0.879628375798996    training-metric, eer: 0.19770732970732988    training-metric, ap: 0.9619837056861066    
+2025-05-15 10:00:55,827 - INFO - Iter: 3600    training-loss, overall: 3.860320806503296    
+2025-05-15 10:00:55,828 - INFO - Iter: 3600    training-metric, acc: 0.874375    training-metric, auc: 0.9057068634822476    training-metric, eer: 0.16507215007215018    training-metric, ap: 0.9700552731744932    
+2025-05-15 10:02:58,938 - INFO - Iter: 3900    training-loss, overall: 3.998566150665283    
+2025-05-15 10:02:58,939 - INFO - Iter: 3900    training-metric, acc: 0.8686458333333333    training-metric, auc: 0.9067122684747543    training-metric, eer: 0.16369782341841185    training-metric, ap: 0.9691635083050998    
+2025-05-15 10:05:04,401 - INFO - Iter: 4200    training-loss, overall: 3.7240638732910156    
+2025-05-15 10:05:04,402 - INFO - Iter: 4200    training-metric, acc: 0.8776041666666666    training-metric, auc: 0.9103780431587527    training-metric, eer: 0.15972970547970566    training-metric, ap: 0.9728178006723535    
+2025-05-15 10:07:07,635 - INFO - Iter: 4500    training-loss, overall: 3.5472042560577393    
+2025-05-15 10:07:07,636 - INFO - Iter: 4500    training-metric, acc: 0.8845833333333334    training-metric, auc: 0.9245050756266503    training-metric, eer: 0.13487873237873246    training-metric, ap: 0.9748991334698883    
+2025-05-15 10:09:11,565 - INFO - Iter: 4800    training-loss, overall: 3.4180948734283447    
+2025-05-15 10:09:11,566 - INFO - Iter: 4800    training-metric, acc: 0.8861458333333333    training-metric, auc: 0.9304178108980528    training-metric, eer: 0.12793992518072786    training-metric, ap: 0.9781802910535599    
+2025-05-15 10:11:13,847 - INFO - Iter: 5100    training-loss, overall: 3.4065537452697754    
+2025-05-15 10:11:13,848 - INFO - Iter: 5100    training-metric, acc: 0.8855208333333333    training-metric, auc: 0.9295413985500225    training-metric, eer: 0.13972282347282358    training-metric, ap: 0.9795515266172409    
+2025-05-15 10:13:18,222 - INFO - Iter: 5400    training-loss, overall: 3.4015209674835205    
+2025-05-15 10:13:18,224 - INFO - Iter: 5400    training-metric, acc: 0.8870833333333333    training-metric, auc: 0.9287560374749646    training-metric, eer: 0.13515738890738893    training-metric, ap: 0.9777978748573177    
+2025-05-15 10:15:23,552 - INFO - Iter: 5700    training-loss, overall: 3.2029833793640137    
+2025-05-15 10:15:23,554 - INFO - Iter: 5700    training-metric, acc: 0.894375    training-metric, auc: 0.936706904598005    training-metric, eer: 0.12574890849890855    training-metric, ap: 0.9801731015487379    
+2025-05-15 10:17:27,977 - INFO - Iter: 6000    training-loss, overall: 3.150007963180542    
+2025-05-15 10:17:27,978 - INFO - Iter: 6000    training-metric, acc: 0.8944791666666667    training-metric, auc: 0.9408948784468764    training-metric, eer: 0.12328181078181072    training-metric, ap: 0.983751397711333    
+2025-05-15 10:19:30,268 - INFO - Iter: 6300    training-loss, overall: 2.993220567703247    
+2025-05-15 10:19:30,269 - INFO - Iter: 6300    training-metric, acc: 0.8994791666666667    training-metric, auc: 0.9409063100005587    training-metric, eer: 0.1210224775224776    training-metric, ap: 0.9824658115549977    
+2025-05-15 10:21:32,783 - INFO - Iter: 6600    training-loss, overall: 2.995546579360962    
+2025-05-15 10:21:32,784 - INFO - Iter: 6600    training-metric, acc: 0.9    training-metric, auc: 0.9457033189010086    training-metric, eer: 0.11548478373478373    training-metric, ap: 0.9843237223185874    
+2025-05-15 10:23:35,468 - INFO - Iter: 6900    training-loss, overall: 3.2014124393463135    
+2025-05-15 10:23:35,469 - INFO - Iter: 6900    training-metric, acc: 0.8916666666666667    training-metric, auc: 0.9391125898345936    training-metric, eer: 0.12170881895881894    training-metric, ap: 0.9817045050575395    
+2025-05-15 10:25:38,361 - INFO - Iter: 7200    training-loss, overall: 2.9609529972076416    
+2025-05-15 10:25:38,361 - INFO - Iter: 7200    training-metric, acc: 0.9001041666666667    training-metric, auc: 0.9426115976867131    training-metric, eer: 0.11245358345358338    training-metric, ap: 0.9838353617790697    
+2025-05-15 10:27:42,325 - INFO - Iter: 7500    training-loss, overall: 3.0075275897979736    
+2025-05-15 10:27:42,326 - INFO - Iter: 7500    training-metric, acc: 0.8997916666666667    training-metric, auc: 0.9464296984214295    training-metric, eer: 0.10116907166907159    training-metric, ap: 0.984209247659193    
+2025-05-15 10:29:45,435 - INFO - Iter: 7800    training-loss, overall: 2.9764511585235596    
+2025-05-15 10:29:45,436 - INFO - Iter: 7800    training-metric, acc: 0.8995833333333333    training-metric, auc: 0.9456145887943558    training-metric, eer: 0.10861507011507003    training-metric, ap: 0.9850798147608145    
+2025-05-15 10:31:47,050 - INFO - Iter: 8100    training-loss, overall: 2.7393836975097656    
+2025-05-15 10:31:47,050 - INFO - Iter: 8100    training-metric, acc: 0.9085416666666667    training-metric, auc: 0.9533969945902914    training-metric, eer: 0.09675505050505046    training-metric, ap: 0.9871747135338569    
+2025-05-15 10:32:18,480 - INFO - ===> Test start!
+2025-05-15 10:32:18,488 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 10:32:35,980 - INFO - Checkpoint saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/ckpt_best.pth, current ckpt is 0+8175
+2025-05-15 10:32:35,981 - INFO - Metrics saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/metric_dict_best.pickle
+2025-05-15 10:32:35,984 - INFO - dataset: UADFV    step: 8175    testing-loss, overall: 15.270119667053223    
+2025-05-15 10:32:35,990 - INFO - dataset: UADFV    step: 8175    testing-metric, acc: 0.489512746047112    testing-metric, auc: 0.5378288076209896    testing-metric, eer: 0.47997416020671835    testing-metric, ap: 0.5775945686113135    testing-metric, video_auc: 0.4685547688463141    testing-metric, acc_real:0.4935400516795866; acc_fake:0.48549323017408125
+2025-05-15 10:32:35,990 - INFO - ===> Test Done!
+2025-05-15 10:32:36,187 - INFO - ===> Epoch[0] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.5378288076209896 | 
+=============================================================================================!
+2025-05-15 10:32:36,190 - INFO - ===> Epoch[1] start!
+2025-05-15 10:32:36,631 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 10:32:37,751 - INFO - Iter: 8176    training-loss, overall: 1.4989029169082642    
+2025-05-15 10:32:37,752 - INFO - Iter: 8176    training-metric, acc: 0.96875    training-metric, auc: 0.9655172413793104    training-metric, eer: 0.0    training-metric, ap: 0.9967672413793105    
+2025-05-15 10:34:40,862 - INFO - Iter: 8476    training-loss, overall: 2.644102096557617    
+2025-05-15 10:34:40,863 - INFO - Iter: 8476    training-metric, acc: 0.9107291666666667    training-metric, auc: 0.9543716877014443    training-metric, eer: 0.09083588633588628    training-metric, ap: 0.9858106113065563    
+2025-05-15 10:36:44,839 - INFO - Iter: 8776    training-loss, overall: 2.802375555038452    
+2025-05-15 10:36:44,840 - INFO - Iter: 8776    training-metric, acc: 0.9063541666666667    training-metric, auc: 0.9486530151938711    training-metric, eer: 0.10807850482850481    training-metric, ap: 0.9852023966381744    
+2025-05-15 10:38:47,114 - INFO - Iter: 9076    training-loss, overall: 2.667255401611328    
+2025-05-15 10:38:47,115 - INFO - Iter: 9076    training-metric, acc: 0.9102083333333333    training-metric, auc: 0.954263878575176    training-metric, eer: 0.09351233951233945    training-metric, ap: 0.9869994269569704    
+2025-05-15 10:40:49,483 - INFO - Iter: 9376    training-loss, overall: 2.8595046997070312    
+2025-05-15 10:40:49,484 - INFO - Iter: 9376    training-metric, acc: 0.9034375    training-metric, auc: 0.9533230050315437    training-metric, eer: 0.09696428571428567    training-metric, ap: 0.9860105220436024    
+2025-05-15 10:42:51,879 - INFO - Iter: 9676    training-loss, overall: 2.463124990463257    
+2025-05-15 10:42:51,880 - INFO - Iter: 9676    training-metric, acc: 0.9166666666666666    training-metric, auc: 0.9599903287114149    training-metric, eer: 0.09301748047567442    training-metric, ap: 0.9882195600547903    
+2025-05-15 10:44:57,470 - INFO - Iter: 9976    training-loss, overall: 2.546520233154297    
+2025-05-15 10:44:57,471 - INFO - Iter: 9976    training-metric, acc: 0.9151041666666667    training-metric, auc: 0.958148839848787    training-metric, eer: 0.0967152014652014    training-metric, ap: 0.9888691040593913    
+2025-05-15 10:47:02,174 - INFO - Iter: 10276    training-loss, overall: 2.534048557281494    
+2025-05-15 10:47:02,174 - INFO - Iter: 10276    training-metric, acc: 0.915    training-metric, auc: 0.9613480762859545    training-metric, eer: 0.08344552669552664    training-metric, ap: 0.9894104442231706    
+2025-05-15 10:49:04,805 - INFO - Iter: 10576    training-loss, overall: 2.401923179626465    
+2025-05-15 10:49:04,806 - INFO - Iter: 10576    training-metric, acc: 0.918125    training-metric, auc: 0.963981496498191    training-metric, eer: 0.07990960890960887    training-metric, ap: 0.9900025544742397    
+2025-05-15 10:51:08,166 - INFO - Iter: 10876    training-loss, overall: 2.2517247200012207    
+2025-05-15 10:51:08,167 - INFO - Iter: 10876    training-metric, acc: 0.9238541666666666    training-metric, auc: 0.9602658404794666    training-metric, eer: 0.07839035964035958    training-metric, ap: 0.9885334319631767    
+2025-05-15 10:53:10,738 - INFO - Iter: 11176    training-loss, overall: 2.5075318813323975    
+2025-05-15 10:53:10,738 - INFO - Iter: 11176    training-metric, acc: 0.9153125    training-metric, auc: 0.9591724751853593    training-metric, eer: 0.09444769119769117    training-metric, ap: 0.9877648877923658    
+2025-05-15 10:55:12,738 - INFO - Iter: 11476    training-loss, overall: 2.3285462856292725    
+2025-05-15 10:55:12,738 - INFO - Iter: 11476    training-metric, acc: 0.9217708333333333    training-metric, auc: 0.9612481444872064    training-metric, eer: 0.08631830206830203    training-metric, ap: 0.9887588794220604    
+2025-05-15 10:57:15,108 - INFO - Iter: 11776    training-loss, overall: 2.5143637657165527    
+2025-05-15 10:57:15,108 - INFO - Iter: 11776    training-metric, acc: 0.9135416666666667    training-metric, auc: 0.9609961933502634    training-metric, eer: 0.08483795371295369    training-metric, ap: 0.988687991009883    
+2025-05-15 10:59:21,510 - INFO - Iter: 12076    training-loss, overall: 2.3814802169799805    
+2025-05-15 10:59:21,510 - INFO - Iter: 12076    training-metric, acc: 0.91875    training-metric, auc: 0.9646653055491893    training-metric, eer: 0.08259343434343425    training-metric, ap: 0.9903550804523104    
+2025-05-15 11:00:38,181 - INFO - ===> Test start!
+2025-05-15 11:00:38,187 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 11:00:51,779 - INFO - Checkpoint saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/ckpt_best.pth, current ckpt is 1+4087
+2025-05-15 11:00:51,780 - INFO - Metrics saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/metric_dict_best.pickle
+2025-05-15 11:00:51,781 - INFO - dataset: UADFV    step: 12263    testing-loss, overall: 10.325701713562012    
+2025-05-15 11:00:51,783 - INFO - dataset: UADFV    step: 12263    testing-metric, acc: 0.6611810261374637    testing-metric, auc: 0.6608439666331798    testing-metric, eer: 0.37532299741602065    testing-metric, ap: 0.6488646689241429    testing-metric, video_auc: 0.7317784256559767    testing-metric, acc_real:0.6647286821705426; acc_fake:0.6576402321083172
+2025-05-15 11:00:51,784 - INFO - ===> Test Done!
+2025-05-15 11:01:37,830 - INFO - Iter: 12376    training-loss, overall: 2.2901649475097656    
+2025-05-15 11:01:37,831 - INFO - Iter: 12376    training-metric, acc: 0.9217708333333333    training-metric, auc: 0.9661995664219997    training-metric, eer: 0.07859716209716204    training-metric, ap: 0.9904024743725114    
+2025-05-15 11:03:41,089 - INFO - Iter: 12676    training-loss, overall: 2.3140463829040527    
+2025-05-15 11:03:41,090 - INFO - Iter: 12676    training-metric, acc: 0.9220833333333334    training-metric, auc: 0.9658847789732992    training-metric, eer: 0.08153709909562747    training-metric, ap: 0.9901538811860813    
+2025-05-15 11:05:44,477 - INFO - Iter: 12976    training-loss, overall: 2.2534067630767822    
+2025-05-15 11:05:44,477 - INFO - Iter: 12976    training-metric, acc: 0.924375    training-metric, auc: 0.9648072940776256    training-metric, eer: 0.07368475077505172    training-metric, ap: 0.990000610436707    
+2025-05-15 11:07:47,338 - INFO - Iter: 13276    training-loss, overall: 2.4978787899017334    
+2025-05-15 11:07:47,338 - INFO - Iter: 13276    training-metric, acc: 0.9154166666666667    training-metric, auc: 0.9592675063319933    training-metric, eer: 0.08225815850815846    training-metric, ap: 0.9880188160760505    
+2025-05-15 11:09:49,548 - INFO - Iter: 13576    training-loss, overall: 2.16135573387146    
+2025-05-15 11:09:49,548 - INFO - Iter: 13576    training-metric, acc: 0.9266666666666666    training-metric, auc: 0.9674879952535009    training-metric, eer: 0.07963320588738647    training-metric, ap: 0.9911515115333319    
+2025-05-15 11:11:51,573 - INFO - Iter: 13876    training-loss, overall: 2.1440422534942627    
+2025-05-15 11:11:51,574 - INFO - Iter: 13876    training-metric, acc: 0.9260416666666667    training-metric, auc: 0.9702085104834165    training-metric, eer: 0.0783908868908868    training-metric, ap: 0.9917380725898008    
+2025-05-15 11:13:53,514 - INFO - Iter: 14176    training-loss, overall: 2.0768418312072754    
+2025-05-15 11:13:53,515 - INFO - Iter: 14176    training-metric, acc: 0.9288541666666666    training-metric, auc: 0.9747017342129612    training-metric, eer: 0.06261331261331254    training-metric, ap: 0.9926850019001455    
+2025-05-15 11:15:55,223 - INFO - Iter: 14476    training-loss, overall: 2.0121567249298096    
+2025-05-15 11:15:55,223 - INFO - Iter: 14476    training-metric, acc: 0.9322916666666666    training-metric, auc: 0.9733047058511263    training-metric, eer: 0.06083830058830054    training-metric, ap: 0.9927270388898323    
+2025-05-15 11:17:58,115 - INFO - Iter: 14776    training-loss, overall: 2.2494657039642334    
+2025-05-15 11:17:58,116 - INFO - Iter: 14776    training-metric, acc: 0.9234375    training-metric, auc: 0.9675591244636359    training-metric, eer: 0.07615628353128347    training-metric, ap: 0.9910703001475127    
+2025-05-15 11:20:03,153 - INFO - Iter: 15076    training-loss, overall: 2.156250476837158    
+2025-05-15 11:20:03,154 - INFO - Iter: 15076    training-metric, acc: 0.9263541666666667    training-metric, auc: 0.9658539489421433    training-metric, eer: 0.07177311577311572    training-metric, ap: 0.9900575813555753    
+2025-05-15 11:22:07,395 - INFO - Iter: 15376    training-loss, overall: 2.2052597999572754    
+2025-05-15 11:22:07,396 - INFO - Iter: 15376    training-metric, acc: 0.9242708333333334    training-metric, auc: 0.9719283436692822    training-metric, eer: 0.06277356902356897    training-metric, ap: 0.9921118716344213    
+2025-05-15 11:24:10,608 - INFO - Iter: 15676    training-loss, overall: 2.052715539932251    
+2025-05-15 11:24:10,609 - INFO - Iter: 15676    training-metric, acc: 0.9296875    training-metric, auc: 0.9727502005018548    training-metric, eer: 0.06847962516858837    training-metric, ap: 0.9924639089583    
+2025-05-15 11:26:17,705 - INFO - Iter: 15976    training-loss, overall: 1.9111552238464355    
+2025-05-15 11:26:17,705 - INFO - Iter: 15976    training-metric, acc: 0.9344791666666666    training-metric, auc: 0.9756175504902574    training-metric, eer: 0.056665824915824864    training-metric, ap: 0.9935498611315086    
+2025-05-15 11:28:22,322 - INFO - Iter: 16276    training-loss, overall: 2.0299313068389893    
+2025-05-15 11:28:22,323 - INFO - Iter: 16276    training-metric, acc: 0.9322916666666666    training-metric, auc: 0.9720289397208346    training-metric, eer: 0.06482386064325855    training-metric, ap: 0.9921602248464825    
+2025-05-15 11:28:52,773 - INFO - ===> Test start!
+2025-05-15 11:28:52,779 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 11:29:05,337 - INFO - dataset: UADFV    step: 16351    testing-loss, overall: 12.31423282623291    
+2025-05-15 11:29:05,339 - INFO - dataset: UADFV    step: 16351    testing-metric, acc: 0.5847047434656341    testing-metric, auc: 0.608885115379425    testing-metric, eer: 0.4437984496124031    testing-metric, ap: 0.6090680647716006    testing-metric, video_auc: 0.6372344856309871    testing-metric, acc_real:0.5962532299741602; acc_fake:0.5731785944551901
+2025-05-15 11:29:05,339 - INFO - ===> Test Done!
+2025-05-15 11:29:05,579 - INFO - ===> Epoch[1] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.6608439666331798 | 
+=============================================================================================!
+2025-05-15 11:29:05,598 - INFO - ===> Epoch[2] start!
+2025-05-15 11:29:06,047 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 11:29:07,209 - INFO - Iter: 16352    training-loss, overall: 1.8709796667099    
+2025-05-15 11:29:07,210 - INFO - Iter: 16352    training-metric, acc: 0.9375    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999998    
+2025-05-15 11:31:09,182 - INFO - Iter: 16652    training-loss, overall: 2.0197675228118896    
+2025-05-15 11:31:09,182 - INFO - Iter: 16652    training-metric, acc: 0.9322916666666666    training-metric, auc: 0.9728949469568594    training-metric, eer: 0.06654437229437224    training-metric, ap: 0.992850257681749    
+2025-05-15 11:33:12,030 - INFO - Iter: 16952    training-loss, overall: 2.180565595626831    
+2025-05-15 11:33:12,030 - INFO - Iter: 16952    training-metric, acc: 0.9265625    training-metric, auc: 0.9690843578753028    training-metric, eer: 0.07061376007864299    training-metric, ap: 0.9909654210345633    
+2025-05-15 11:35:16,501 - INFO - Iter: 17252    training-loss, overall: 1.9082591533660889    
+2025-05-15 11:35:16,502 - INFO - Iter: 17252    training-metric, acc: 0.9353125    training-metric, auc: 0.9748588920991873    training-metric, eer: 0.06440812890812883    training-metric, ap: 0.9929809834384361    
+2025-05-15 11:37:21,241 - INFO - Iter: 17552    training-loss, overall: 1.9019123315811157    
+2025-05-15 11:37:21,241 - INFO - Iter: 17552    training-metric, acc: 0.9358333333333333    training-metric, auc: 0.9756612126176084    training-metric, eer: 0.06295898545898543    training-metric, ap: 0.9932206019874797    
+2025-05-15 11:39:23,863 - INFO - Iter: 17852    training-loss, overall: 1.8968825340270996    
+2025-05-15 11:39:23,864 - INFO - Iter: 17852    training-metric, acc: 0.9361458333333333    training-metric, auc: 0.9739719051597165    training-metric, eer: 0.05595145595145593    training-metric, ap: 0.9930478614534691    
+2025-05-15 11:41:25,665 - INFO - Iter: 18152    training-loss, overall: 1.9227348566055298    
+2025-05-15 11:41:25,666 - INFO - Iter: 18152    training-metric, acc: 0.9342708333333334    training-metric, auc: 0.9765304133062983    training-metric, eer: 0.059607744107744054    training-metric, ap: 0.9930603382032263    
+2025-05-15 11:43:28,053 - INFO - Iter: 18452    training-loss, overall: 1.8467631340026855    
+2025-05-15 11:43:28,054 - INFO - Iter: 18452    training-metric, acc: 0.9373958333333333    training-metric, auc: 0.9787732165486017    training-metric, eer: 0.05364710289710284    training-metric, ap: 0.993985706120957    
+2025-05-15 11:45:30,703 - INFO - Iter: 18752    training-loss, overall: 1.811822533607483    
+2025-05-15 11:45:30,704 - INFO - Iter: 18752    training-metric, acc: 0.9386458333333333    training-metric, auc: 0.9792103293123652    training-metric, eer: 0.04866209716209712    training-metric, ap: 0.9942946442294158    
+2025-05-15 11:47:32,911 - INFO - Iter: 19052    training-loss, overall: 1.9816484451293945    
+2025-05-15 11:47:32,912 - INFO - Iter: 19052    training-metric, acc: 0.9330208333333333    training-metric, auc: 0.9717743859115231    training-metric, eer: 0.06854766378177746    training-metric, ap: 0.9917203185378215    
+2025-05-15 11:49:35,031 - INFO - Iter: 19352    training-loss, overall: 2.0837435722351074    
+2025-05-15 11:49:35,032 - INFO - Iter: 19352    training-metric, acc: 0.9284375    training-metric, auc: 0.9694712124873991    training-metric, eer: 0.07614978539978537    training-metric, ap: 0.9921847992912293    
+2025-05-15 11:51:37,657 - INFO - Iter: 19652    training-loss, overall: 1.9082059860229492    
+2025-05-15 11:51:37,658 - INFO - Iter: 19652    training-metric, acc: 0.9344791666666666    training-metric, auc: 0.9750131896017412    training-metric, eer: 0.05745794945794942    training-metric, ap: 0.9931710194348601    
+2025-05-15 11:53:39,902 - INFO - Iter: 19952    training-loss, overall: 1.746937870979309    
+2025-05-15 11:53:39,903 - INFO - Iter: 19952    training-metric, acc: 0.9402083333333333    training-metric, auc: 0.9810310615781954    training-metric, eer: 0.05012561512561508    training-metric, ap: 0.9948781169614853    
+2025-05-15 11:55:41,995 - INFO - Iter: 20252    training-loss, overall: 1.7734627723693848    
+2025-05-15 11:55:41,996 - INFO - Iter: 20252    training-metric, acc: 0.9396875    training-metric, auc: 0.9807568943680881    training-metric, eer: 0.047929126429126376    training-metric, ap: 0.9944318888567959    
+2025-05-15 11:56:58,150 - INFO - ===> Test start!
+2025-05-15 11:56:58,157 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 11:57:11,545 - INFO - Checkpoint saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/ckpt_best.pth, current ckpt is 2+4087
+2025-05-15 11:57:11,546 - INFO - Metrics saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/metric_dict_best.pickle
+2025-05-15 11:57:11,546 - INFO - dataset: UADFV    step: 20439    testing-loss, overall: 9.062529563903809    
+2025-05-15 11:57:11,549 - INFO - dataset: UADFV    step: 20439    testing-metric, acc: 0.7005485640529203    testing-metric, auc: 0.8280960270693076    testing-metric, eer: 0.2590439276485788    testing-metric, ap: 0.8316562159417267    testing-metric, video_auc: 0.8792169929196169    testing-metric, acc_real:0.7060723514211886; acc_fake:0.6950354609929078
+2025-05-15 11:57:11,549 - INFO - ===> Test Done!
+2025-05-15 11:57:57,517 - INFO - Iter: 20552    training-loss, overall: 1.7013251781463623    
+2025-05-15 11:57:57,518 - INFO - Iter: 20552    training-metric, acc: 0.9425    training-metric, auc: 0.9817859960944927    training-metric, eer: 0.050209331731070825    training-metric, ap: 0.9951546224430307    
+2025-05-15 12:00:00,724 - INFO - Iter: 20852    training-loss, overall: 1.8456311225891113    
+2025-05-15 12:00:00,724 - INFO - Iter: 20852    training-metric, acc: 0.9376041666666667    training-metric, auc: 0.9784123733836502    training-metric, eer: 0.05173262385762382    training-metric, ap: 0.9937880997540344    
+2025-05-15 12:02:02,963 - INFO - Iter: 21152    training-loss, overall: 1.767435908317566    
+2025-05-15 12:02:02,963 - INFO - Iter: 21152    training-metric, acc: 0.9397916666666667    training-metric, auc: 0.9775884863200454    training-metric, eer: 0.05195034434164864    training-metric, ap: 0.993717010018878    
+2025-05-15 12:04:04,573 - INFO - Iter: 21452    training-loss, overall: 1.839769721031189    
+2025-05-15 12:04:04,574 - INFO - Iter: 21452    training-metric, acc: 0.9378125    training-metric, auc: 0.9794986437684128    training-metric, eer: 0.04677318977318974    training-metric, ap: 0.994415262629419    
+2025-05-15 12:06:07,346 - INFO - Iter: 21752    training-loss, overall: 1.9014899730682373    
+2025-05-15 12:06:07,347 - INFO - Iter: 21752    training-metric, acc: 0.9352083333333333    training-metric, auc: 0.9768548516842581    training-metric, eer: 0.05725493025493022    training-metric, ap: 0.9936518917309881    
+2025-05-15 12:08:12,184 - INFO - Iter: 22052    training-loss, overall: 1.8033653497695923    
+2025-05-15 12:08:12,185 - INFO - Iter: 22052    training-metric, acc: 0.9382291666666667    training-metric, auc: 0.9796934000821695    training-metric, eer: 0.049014189514189475    training-metric, ap: 0.9945317648511489    
+2025-05-15 12:10:16,690 - INFO - Iter: 22352    training-loss, overall: 2.034947156906128    
+2025-05-15 12:10:16,691 - INFO - Iter: 22352    training-metric, acc: 0.93    training-metric, auc: 0.9726034784261869    training-metric, eer: 0.06147774447774444    training-metric, ap: 0.9930715056334606    
+2025-05-15 12:12:20,710 - INFO - Iter: 22652    training-loss, overall: 1.78345787525177    
+2025-05-15 12:12:20,711 - INFO - Iter: 22652    training-metric, acc: 0.9394791666666666    training-metric, auc: 0.9802576603691612    training-metric, eer: 0.04625540200540197    training-metric, ap: 0.99491315770713    
+2025-05-15 12:14:22,314 - INFO - Iter: 22952    training-loss, overall: 1.8068898916244507    
+2025-05-15 12:14:22,315 - INFO - Iter: 22952    training-metric, acc: 0.9382291666666667    training-metric, auc: 0.9776834261640563    training-metric, eer: 0.0529354080898444    training-metric, ap: 0.9938614108542985    
+2025-05-15 12:16:24,607 - INFO - Iter: 23252    training-loss, overall: 1.704469084739685    
+2025-05-15 12:16:24,608 - INFO - Iter: 23252    training-metric, acc: 0.9429166666666666    training-metric, auc: 0.9811961095870447    training-metric, eer: 0.0414157324157324    training-metric, ap: 0.9950013471520329    
+2025-05-15 12:18:26,556 - INFO - Iter: 23552    training-loss, overall: 1.647717833518982    
+2025-05-15 12:18:26,557 - INFO - Iter: 23552    training-metric, acc: 0.94375    training-metric, auc: 0.98264184501861    training-metric, eer: 0.050148869648869616    training-metric, ap: 0.9953955925966674    
+2025-05-15 12:20:28,888 - INFO - Iter: 23852    training-loss, overall: 1.6196815967559814    
+2025-05-15 12:20:28,889 - INFO - Iter: 23852    training-metric, acc: 0.945625    training-metric, auc: 0.9803894167537718    training-metric, eer: 0.04525745550745547    training-metric, ap: 0.9946162851328406    
+2025-05-15 12:22:30,459 - INFO - Iter: 24152    training-loss, overall: 1.850807547569275    
+2025-05-15 12:22:30,460 - INFO - Iter: 24152    training-metric, acc: 0.9370833333333334    training-metric, auc: 0.9770300847095128    training-metric, eer: 0.05570069745069741    training-metric, ap: 0.9935362857397346    
+2025-05-15 12:24:35,949 - INFO - Iter: 24452    training-loss, overall: 1.7507343292236328    
+2025-05-15 12:24:35,950 - INFO - Iter: 24452    training-metric, acc: 0.9404166666666667    training-metric, auc: 0.9777606877467501    training-metric, eer: 0.05312518037518033    training-metric, ap: 0.9941904547486659    
+2025-05-15 12:25:06,702 - INFO - ===> Test start!
+2025-05-15 12:25:06,708 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 12:25:20,533 - INFO - Checkpoint saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/ckpt_best.pth, current ckpt is 2+8175
+2025-05-15 12:25:20,603 - INFO - Metrics saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/metric_dict_best.pickle
+2025-05-15 12:25:20,604 - INFO - dataset: UADFV    step: 24527    testing-loss, overall: 9.609966278076172    
+2025-05-15 12:25:20,607 - INFO - dataset: UADFV    step: 24527    testing-metric, acc: 0.6747337850919651    testing-metric, auc: 0.8407947610693776    testing-metric, eer: 0.23901808785529716    testing-metric, ap: 0.814125809012973    testing-metric, video_auc: 0.9021241149521033    testing-metric, acc_real:0.6918604651162791; acc_fake:0.6576402321083172
+2025-05-15 12:25:20,607 - INFO - ===> Test Done!
+2025-05-15 12:25:20,873 - INFO - ===> Epoch[2] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 12:25:20,895 - INFO - ===> Epoch[3] start!
+2025-05-15 12:25:21,346 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 12:25:22,490 - INFO - Iter: 24528    training-loss, overall: 0.21169985830783844    
+2025-05-15 12:25:22,491 - INFO - Iter: 24528    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999999    
+2025-05-15 12:27:24,637 - INFO - Iter: 24828    training-loss, overall: 1.6192115545272827    
+2025-05-15 12:27:24,638 - INFO - Iter: 24828    training-metric, acc: 0.9444791666666666    training-metric, auc: 0.9827453005121076    training-metric, eer: 0.04568960396719591    training-metric, ap: 0.9951751211503047    
+2025-05-15 12:29:27,168 - INFO - Iter: 25128    training-loss, overall: 1.656907081604004    
+2025-05-15 12:29:27,169 - INFO - Iter: 25128    training-metric, acc: 0.9436458333333333    training-metric, auc: 0.9801688341618315    training-metric, eer: 0.05100384800384797    training-metric, ap: 0.9947545335184688    
+2025-05-15 12:31:30,082 - INFO - Iter: 25428    training-loss, overall: 1.4993654489517212    
+2025-05-15 12:31:30,083 - INFO - Iter: 25428    training-metric, acc: 0.94875    training-metric, auc: 0.9846584765297238    training-metric, eer: 0.03389698264698264    training-metric, ap: 0.9960441115340049    
+2025-05-15 12:33:32,523 - INFO - Iter: 25728    training-loss, overall: 1.6124440431594849    
+2025-05-15 12:33:32,524 - INFO - Iter: 25728    training-metric, acc: 0.9447916666666667    training-metric, auc: 0.9827048484159236    training-metric, eer: 0.04438684463684462    training-metric, ap: 0.9954197847571737    
+2025-05-15 12:35:37,987 - INFO - Iter: 26028    training-loss, overall: 1.6381566524505615    
+2025-05-15 12:35:37,988 - INFO - Iter: 26028    training-metric, acc: 0.944375    training-metric, auc: 0.9830519494159952    training-metric, eer: 0.04384479409479406    training-metric, ap: 0.9951203209752751    
+2025-05-15 12:37:42,824 - INFO - Iter: 26328    training-loss, overall: 1.536263346672058    
+2025-05-15 12:37:42,825 - INFO - Iter: 26328    training-metric, acc: 0.9479166666666666    training-metric, auc: 0.9840008930563808    training-metric, eer: 0.04410642135642134    training-metric, ap: 0.9958757396002883    
+2025-05-15 12:39:47,983 - INFO - Iter: 26628    training-loss, overall: 1.6252750158309937    
+2025-05-15 12:39:47,984 - INFO - Iter: 26628    training-metric, acc: 0.9451041666666666    training-metric, auc: 0.9826674395303577    training-metric, eer: 0.04005137455137452    training-metric, ap: 0.9950300441542406    
+2025-05-15 12:41:52,797 - INFO - Iter: 26928    training-loss, overall: 1.8254669904708862    
+2025-05-15 12:41:52,798 - INFO - Iter: 26928    training-metric, acc: 0.9375    training-metric, auc: 0.9794908332660024    training-metric, eer: 0.04890131165131159    training-metric, ap: 0.9941647643119205    
+2025-05-15 12:43:58,909 - INFO - Iter: 27228    training-loss, overall: 1.493044137954712    
+2025-05-15 12:43:58,909 - INFO - Iter: 27228    training-metric, acc: 0.9483333333333334    training-metric, auc: 0.9839076347801233    training-metric, eer: 0.0329606782106782    training-metric, ap: 0.9959041062985375    
+2025-05-15 12:46:00,765 - INFO - Iter: 27528    training-loss, overall: 1.6318552494049072    
+2025-05-15 12:46:00,766 - INFO - Iter: 27528    training-metric, acc: 0.944375    training-metric, auc: 0.9806099387844919    training-metric, eer: 0.0506835294335294    training-metric, ap: 0.9947602526331407    
+2025-05-15 12:48:05,859 - INFO - Iter: 27828    training-loss, overall: 1.4317015409469604    
+2025-05-15 12:48:05,859 - INFO - Iter: 27828    training-metric, acc: 0.9509375    training-metric, auc: 0.9853874583625875    training-metric, eer: 0.03364069264069263    training-metric, ap: 0.9963653990890081    
+2025-05-15 12:50:10,778 - INFO - Iter: 28128    training-loss, overall: 1.5753768682479858    
+2025-05-15 12:50:10,779 - INFO - Iter: 28128    training-metric, acc: 0.9461458333333334    training-metric, auc: 0.9831836576458435    training-metric, eer: 0.04670012395012393    training-metric, ap: 0.9952956116362975    
+2025-05-15 12:52:16,078 - INFO - Iter: 28428    training-loss, overall: 1.5399467945098877    
+2025-05-15 12:52:16,078 - INFO - Iter: 28428    training-metric, acc: 0.946875    training-metric, auc: 0.9842702021813634    training-metric, eer: 0.03978242128242125    training-metric, ap: 0.9957973173849536    
+2025-05-15 12:53:33,898 - INFO - ===> Test start!
+2025-05-15 12:53:33,904 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 12:53:46,568 - INFO - dataset: UADFV    step: 28615    testing-loss, overall: 9.800090789794922    
+2025-05-15 12:53:46,570 - INFO - dataset: UADFV    step: 28615    testing-metric, acc: 0.6615037108744757    testing-metric, auc: 0.7575207792921796    testing-metric, eer: 0.31912144702842377    testing-metric, ap: 0.7713477390818189    testing-metric, video_auc: 0.7975843398583923    testing-metric, acc_real:0.6750645994832042; acc_fake:0.6479690522243714
+2025-05-15 12:53:46,571 - INFO - ===> Test Done!
+2025-05-15 12:54:33,286 - INFO - Iter: 28728    training-loss, overall: 1.5072027444839478    
+2025-05-15 12:54:33,287 - INFO - Iter: 28728    training-metric, acc: 0.9492708333333333    training-metric, auc: 0.983784177877139    training-metric, eer: 0.045720214970214945    training-metric, ap: 0.9953339679636937    
+2025-05-15 12:56:40,416 - INFO - Iter: 29028    training-loss, overall: 1.4801884889602661    
+2025-05-15 12:56:40,417 - INFO - Iter: 29028    training-metric, acc: 0.95    training-metric, auc: 0.9838311148218156    training-metric, eer: 0.04421224146224142    training-metric, ap: 0.9958924208179987    
+2025-05-15 12:58:47,944 - INFO - Iter: 29328    training-loss, overall: 1.581222414970398    
+2025-05-15 12:58:47,945 - INFO - Iter: 29328    training-metric, acc: 0.9454166666666667    training-metric, auc: 0.9849087379093107    training-metric, eer: 0.0389235209235209    training-metric, ap: 0.9959596851148789    
+2025-05-15 13:00:52,524 - INFO - Iter: 29628    training-loss, overall: 1.5610905885696411    
+2025-05-15 13:00:52,525 - INFO - Iter: 29628    training-metric, acc: 0.9466666666666667    training-metric, auc: 0.9853918467135939    training-metric, eer: 0.03638222888222886    training-metric, ap: 0.9956187146878374    
+2025-05-15 13:02:58,926 - INFO - Iter: 29928    training-loss, overall: 1.743255853652954    
+2025-05-15 13:02:58,926 - INFO - Iter: 29928    training-metric, acc: 0.9413541666666667    training-metric, auc: 0.9809522318177085    training-metric, eer: 0.05325553150553146    training-metric, ap: 0.9946670399096206    
+2025-05-15 13:05:03,458 - INFO - Iter: 30228    training-loss, overall: 1.4955742359161377    
+2025-05-15 13:05:03,459 - INFO - Iter: 30228    training-metric, acc: 0.9485416666666666    training-metric, auc: 0.984548095526066    training-metric, eer: 0.036025733525733517    training-metric, ap: 0.9956113568091254    
+2025-05-15 13:07:06,947 - INFO - Iter: 30528    training-loss, overall: 1.6299742460250854    
+2025-05-15 13:07:06,948 - INFO - Iter: 30528    training-metric, acc: 0.94375    training-metric, auc: 0.9843815812222069    training-metric, eer: 0.04128571428571426    training-metric, ap: 0.9952492842845774    
+2025-05-15 13:09:12,021 - INFO - Iter: 30828    training-loss, overall: 1.4821535348892212    
+2025-05-15 13:09:12,022 - INFO - Iter: 30828    training-metric, acc: 0.9491666666666667    training-metric, auc: 0.9841472725424275    training-metric, eer: 0.03735709660709658    training-metric, ap: 0.9957225161319126    
+2025-05-15 13:11:18,918 - INFO - Iter: 31128    training-loss, overall: 1.435222864151001    
+2025-05-15 13:11:18,919 - INFO - Iter: 31128    training-metric, acc: 0.9513541666666666    training-metric, auc: 0.9857369215300175    training-metric, eer: 0.034339466089466086    training-metric, ap: 0.9959292273705982    
+2025-05-15 13:13:23,262 - INFO - Iter: 31428    training-loss, overall: 1.4582105875015259    
+2025-05-15 13:13:23,263 - INFO - Iter: 31428    training-metric, acc: 0.9505208333333334    training-metric, auc: 0.9859907386837574    training-metric, eer: 0.03813684463684462    training-metric, ap: 0.9958149875244541    
+2025-05-15 13:15:27,398 - INFO - Iter: 31728    training-loss, overall: 1.527710199356079    
+2025-05-15 13:15:27,399 - INFO - Iter: 31728    training-metric, acc: 0.9479166666666666    training-metric, auc: 0.9847355510614195    training-metric, eer: 0.04448917748917746    training-metric, ap: 0.9959599335162784    
+2025-05-15 13:17:30,091 - INFO - Iter: 32028    training-loss, overall: 1.3526020050048828    
+2025-05-15 13:17:30,092 - INFO - Iter: 32028    training-metric, acc: 0.9541666666666667    training-metric, auc: 0.9871336463404206    training-metric, eer: 0.03175809375809375    training-metric, ap: 0.9967942238105125    
+2025-05-15 13:19:33,010 - INFO - Iter: 32328    training-loss, overall: 1.4439356327056885    
+2025-05-15 13:19:33,011 - INFO - Iter: 32328    training-metric, acc: 0.9510416666666667    training-metric, auc: 0.985019410621098    training-metric, eer: 0.03572839197839196    training-metric, ap: 0.995889636568517    
+2025-05-15 13:21:37,092 - INFO - Iter: 32628    training-loss, overall: 1.5068622827529907    
+2025-05-15 13:21:37,093 - INFO - Iter: 32628    training-metric, acc: 0.94875    training-metric, auc: 0.9841345351985262    training-metric, eer: 0.04351410626410623    training-metric, ap: 0.9954585044609593    
+2025-05-15 13:22:08,301 - INFO - ===> Test start!
+2025-05-15 13:22:08,308 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 13:22:20,748 - INFO - dataset: UADFV    step: 32703    testing-loss, overall: 10.119540214538574    
+2025-05-15 13:22:20,750 - INFO - dataset: UADFV    step: 32703    testing-metric, acc: 0.6592449177153921    testing-metric, auc: 0.7679043861008235    testing-metric, eer: 0.3081395348837209    testing-metric, ap: 0.7654886510329951    testing-metric, video_auc: 0.807996668054977    testing-metric, acc_real:0.6711886304909561; acc_fake:0.647324306898775
+2025-05-15 13:22:20,751 - INFO - ===> Test Done!
+2025-05-15 13:22:20,975 - INFO - ===> Epoch[3] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 13:22:20,992 - INFO - ===> Epoch[4] start!
+2025-05-15 13:22:21,444 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 13:22:22,591 - INFO - Iter: 32704    training-loss, overall: 0.4626446068286896    
+2025-05-15 13:22:22,592 - INFO - Iter: 32704    training-metric, acc: 0.96875    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999998    
+2025-05-15 13:24:24,513 - INFO - Iter: 33004    training-loss, overall: 1.2235063314437866    
+2025-05-15 13:24:24,514 - INFO - Iter: 33004    training-metric, acc: 0.95875    training-metric, auc: 0.9885683165435766    training-metric, eer: 0.027994227994227985    training-metric, ap: 0.997013013029918    
+2025-05-15 13:26:27,036 - INFO - Iter: 33304    training-loss, overall: 1.4156749248504639    
+2025-05-15 13:26:27,037 - INFO - Iter: 33304    training-metric, acc: 0.951875    training-metric, auc: 0.9868565449444954    training-metric, eer: 0.033507936507936494    training-metric, ap: 0.9962372333903198    
+2025-05-15 13:28:29,306 - INFO - Iter: 33604    training-loss, overall: 1.4820396900177002    
+2025-05-15 13:28:29,307 - INFO - Iter: 33604    training-metric, acc: 0.9497916666666667    training-metric, auc: 0.9838921163859599    training-metric, eer: 0.036730519480519454    training-metric, ap: 0.9953650917303459    
+2025-05-15 13:30:33,215 - INFO - Iter: 33904    training-loss, overall: 1.366410493850708    
+2025-05-15 13:30:33,216 - INFO - Iter: 33904    training-metric, acc: 0.9544791666666667    training-metric, auc: 0.9846117301263512    training-metric, eer: 0.043699657830092595    training-metric, ap: 0.9960142743650986    
+2025-05-15 13:32:35,262 - INFO - Iter: 34204    training-loss, overall: 1.50495183467865    
+2025-05-15 13:32:35,263 - INFO - Iter: 34204    training-metric, acc: 0.9484375    training-metric, auc: 0.9848974539455798    training-metric, eer: 0.03896784696784694    training-metric, ap: 0.9958546332597672    
+2025-05-15 13:34:37,229 - INFO - Iter: 34504    training-loss, overall: 1.386605143547058    
+2025-05-15 13:34:37,229 - INFO - Iter: 34504    training-metric, acc: 0.9530208333333333    training-metric, auc: 0.9864347045489603    training-metric, eer: 0.038498075998075976    training-metric, ap: 0.9963820700390248    
+2025-05-15 13:36:40,255 - INFO - Iter: 34804    training-loss, overall: 1.4880067110061646    
+2025-05-15 13:36:40,256 - INFO - Iter: 34804    training-metric, acc: 0.9491666666666667    training-metric, auc: 0.9858040871102381    training-metric, eer: 0.03740885040885039    training-metric, ap: 0.9960146659563638    
+2025-05-15 13:38:42,681 - INFO - Iter: 35104    training-loss, overall: 1.356123924255371    
+2025-05-15 13:38:42,682 - INFO - Iter: 35104    training-metric, acc: 0.9541666666666667    training-metric, auc: 0.9864571666545362    training-metric, eer: 0.03239850889850889    training-metric, ap: 0.9965346520430003    
+2025-05-15 13:40:50,049 - INFO - Iter: 35404    training-loss, overall: 1.5722739696502686    
+2025-05-15 13:40:50,050 - INFO - Iter: 35404    training-metric, acc: 0.9460416666666667    training-metric, auc: 0.9849725851111504    training-metric, eer: 0.036288637288637265    training-metric, ap: 0.9959361120022533    
+2025-05-15 13:42:56,449 - INFO - Iter: 35704    training-loss, overall: 1.4645544290542603    
+2025-05-15 13:42:56,450 - INFO - Iter: 35704    training-metric, acc: 0.9498958333333334    training-metric, auc: 0.9873629348958182    training-metric, eer: 0.030600048100048096    training-metric, ap: 0.9964315012355178    
+2025-05-15 13:44:59,519 - INFO - Iter: 36004    training-loss, overall: 1.432523250579834    
+2025-05-15 13:44:59,520 - INFO - Iter: 36004    training-metric, acc: 0.9516666666666667    training-metric, auc: 0.9852432022268321    training-metric, eer: 0.035474099974099955    training-metric, ap: 0.9958944264127767    
+2025-05-15 13:47:02,020 - INFO - Iter: 36304    training-loss, overall: 1.4040757417678833    
+2025-05-15 13:47:02,021 - INFO - Iter: 36304    training-metric, acc: 0.9521875    training-metric, auc: 0.9875210883489156    training-metric, eer: 0.024259860509860516    training-metric, ap: 0.9968056645947206    
+2025-05-15 13:49:04,407 - INFO - Iter: 36604    training-loss, overall: 1.3990920782089233    
+2025-05-15 13:49:04,408 - INFO - Iter: 36604    training-metric, acc: 0.9523958333333333    training-metric, auc: 0.9874320822782431    training-metric, eer: 0.026799617049617048    training-metric, ap: 0.9967433874913204    
+2025-05-15 13:50:22,150 - INFO - ===> Test start!
+2025-05-15 13:50:22,157 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 13:50:34,947 - INFO - dataset: UADFV    step: 36791    testing-loss, overall: 9.987051963806152    
+2025-05-15 13:50:34,949 - INFO - dataset: UADFV    step: 36791    testing-metric, acc: 0.6669893514036787    testing-metric, auc: 0.7486215861401413    testing-metric, eer: 0.33527131782945735    testing-metric, ap: 0.7528207920649092    testing-metric, video_auc: 0.7850895460224906    testing-metric, acc_real:0.6757105943152455; acc_fake:0.6582849774339136
+2025-05-15 13:50:34,949 - INFO - ===> Test Done!
+2025-05-15 13:51:21,643 - INFO - Iter: 36904    training-loss, overall: 1.408387541770935    
+2025-05-15 13:51:21,644 - INFO - Iter: 36904    training-metric, acc: 0.9511458333333334    training-metric, auc: 0.9875533259231097    training-metric, eer: 0.033619408369408355    training-metric, ap: 0.9967341773784062    
+2025-05-15 13:53:26,577 - INFO - Iter: 37204    training-loss, overall: 1.361480951309204    
+2025-05-15 13:53:26,578 - INFO - Iter: 37204    training-metric, acc: 0.9539583333333334    training-metric, auc: 0.9881671905611135    training-metric, eer: 0.03478437207534198    training-metric, ap: 0.996688252785076    
+2025-05-15 13:55:29,988 - INFO - Iter: 37504    training-loss, overall: 1.530688762664795    
+2025-05-15 13:55:29,988 - INFO - Iter: 37504    training-metric, acc: 0.9480208333333333    training-metric, auc: 0.9841099554167639    training-metric, eer: 0.036389601139601116    training-metric, ap: 0.9954605981144141    
+2025-05-15 13:57:31,735 - INFO - Iter: 37804    training-loss, overall: 1.3367648124694824    
+2025-05-15 13:57:31,736 - INFO - Iter: 37804    training-metric, acc: 0.9548958333333334    training-metric, auc: 0.9870869903333316    training-metric, eer: 0.032112184112184104    training-metric, ap: 0.9966014128742884    
+2025-05-15 13:59:36,839 - INFO - Iter: 38104    training-loss, overall: 1.2590556144714355    
+2025-05-15 13:59:36,840 - INFO - Iter: 38104    training-metric, acc: 0.9567708333333333    training-metric, auc: 0.9897558581536692    training-metric, eer: 0.025042762792762793    training-metric, ap: 0.9972603325434509    
+2025-05-15 14:01:42,805 - INFO - Iter: 38404    training-loss, overall: 1.5396645069122314    
+2025-05-15 14:01:42,806 - INFO - Iter: 38404    training-metric, acc: 0.9479166666666666    training-metric, auc: 0.9843104373943791    training-metric, eer: 0.03890837559930613    training-metric, ap: 0.9958462857323641    
+2025-05-15 14:03:44,885 - INFO - Iter: 38704    training-loss, overall: 1.372066855430603    
+2025-05-15 14:03:44,886 - INFO - Iter: 38704    training-metric, acc: 0.9532291666666667    training-metric, auc: 0.989587049048647    training-metric, eer: 0.024621091871091873    training-metric, ap: 0.9971793240193257    
+2025-05-15 14:05:47,044 - INFO - Iter: 39004    training-loss, overall: 1.3335267305374146    
+2025-05-15 14:05:47,045 - INFO - Iter: 39004    training-metric, acc: 0.955    training-metric, auc: 0.9861890542432054    training-metric, eer: 0.04177176527176525    training-metric, ap: 0.9963234569350057    
+2025-05-15 14:07:49,656 - INFO - Iter: 39304    training-loss, overall: 1.3593015670776367    
+2025-05-15 14:07:49,656 - INFO - Iter: 39304    training-metric, acc: 0.9538541666666667    training-metric, auc: 0.9878944843337386    training-metric, eer: 0.034118686868686854    training-metric, ap: 0.9964276024839087    
+2025-05-15 14:09:53,711 - INFO - Iter: 39604    training-loss, overall: 1.335680603981018    
+2025-05-15 14:09:53,712 - INFO - Iter: 39604    training-metric, acc: 0.9545833333333333    training-metric, auc: 0.9868598595073138    training-metric, eer: 0.030539201539201533    training-metric, ap: 0.9965382084289284    
+2025-05-15 14:11:55,985 - INFO - Iter: 39904    training-loss, overall: 1.3085343837738037    
+2025-05-15 14:11:55,986 - INFO - Iter: 39904    training-metric, acc: 0.9554166666666667    training-metric, auc: 0.9887915045167581    training-metric, eer: 0.03146504421504421    training-metric, ap: 0.9969267045411851    
+2025-05-15 14:13:58,058 - INFO - Iter: 40204    training-loss, overall: 1.3706884384155273    
+2025-05-15 14:13:58,059 - INFO - Iter: 40204    training-metric, acc: 0.9538541666666667    training-metric, auc: 0.9869553415920622    training-metric, eer: 0.04071992821992819    training-metric, ap: 0.9962912432041822    
+2025-05-15 14:16:03,210 - INFO - Iter: 40504    training-loss, overall: 1.2989897727966309    
+2025-05-15 14:16:03,211 - INFO - Iter: 40504    training-metric, acc: 0.95625    training-metric, auc: 0.9887374310039909    training-metric, eer: 0.028773448773448777    training-metric, ap: 0.9969530007633495    
+2025-05-15 14:18:06,062 - INFO - Iter: 40804    training-loss, overall: 1.2548472881317139    
+2025-05-15 14:18:06,063 - INFO - Iter: 40804    training-metric, acc: 0.9577083333333334    training-metric, auc: 0.9873655753762544    training-metric, eer: 0.03420839345839345    training-metric, ap: 0.9964719060626516    
+2025-05-15 14:18:36,451 - INFO - ===> Test start!
+2025-05-15 14:18:36,457 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 14:18:49,314 - INFO - dataset: UADFV    step: 40879    testing-loss, overall: 10.750368118286133    
+2025-05-15 14:18:49,316 - INFO - dataset: UADFV    step: 40879    testing-metric, acc: 0.6398838334946757    testing-metric, auc: 0.7439336462097471    testing-metric, eer: 0.32493540051679587    testing-metric, ap: 0.7350194703206466    testing-metric, video_auc: 0.7667638483965015    testing-metric, acc_real:0.6511627906976745; acc_fake:0.6286266924564797
+2025-05-15 14:18:49,316 - INFO - ===> Test Done!
+2025-05-15 14:18:49,556 - INFO - ===> Epoch[4] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 14:18:49,575 - INFO - ===> Epoch[5] start!
+2025-05-15 14:18:50,029 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 14:18:51,196 - INFO - Iter: 40880    training-loss, overall: 1.7706103324890137    
+2025-05-15 14:18:51,197 - INFO - Iter: 40880    training-metric, acc: 0.9375    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999998    
+2025-05-15 14:20:53,099 - INFO - Iter: 41180    training-loss, overall: 1.1710504293441772    
+2025-05-15 14:20:53,100 - INFO - Iter: 41180    training-metric, acc: 0.9611458333333334    training-metric, auc: 0.9893533871745084    training-metric, eer: 0.02778342028342029    training-metric, ap: 0.9971782392611824    
+2025-05-15 14:22:57,376 - INFO - Iter: 41480    training-loss, overall: 1.4582045078277588    
+2025-05-15 14:22:57,376 - INFO - Iter: 41480    training-metric, acc: 0.949375    training-metric, auc: 0.9872746436532043    training-metric, eer: 0.034484487734487715    training-metric, ap: 0.9963979273733289    
+2025-05-15 14:25:03,602 - INFO - Iter: 41780    training-loss, overall: 1.2555516958236694    
+2025-05-15 14:25:03,603 - INFO - Iter: 41780    training-metric, acc: 0.9576041666666667    training-metric, auc: 0.9881087932426483    training-metric, eer: 0.028768675768675766    training-metric, ap: 0.9966864039923522    
+2025-05-15 14:27:09,570 - INFO - Iter: 42080    training-loss, overall: 1.3236249685287476    
+2025-05-15 14:27:09,571 - INFO - Iter: 42080    training-metric, acc: 0.9544791666666667    training-metric, auc: 0.9875711327248016    training-metric, eer: 0.03125135733831386    training-metric, ap: 0.9967665167032231    
+2025-05-15 14:29:13,389 - INFO - Iter: 42380    training-loss, overall: 1.3188729286193848    
+2025-05-15 14:29:13,390 - INFO - Iter: 42380    training-metric, acc: 0.9546875    training-metric, auc: 0.9890689714885076    training-metric, eer: 0.028978354978354978    training-metric, ap: 0.9970341736870019    
+2025-05-15 14:31:16,022 - INFO - Iter: 42680    training-loss, overall: 1.2129286527633667    
+2025-05-15 14:31:16,023 - INFO - Iter: 42680    training-metric, acc: 0.9588541666666667    training-metric, auc: 0.9890018845877466    training-metric, eer: 0.02461342076726692    training-metric, ap: 0.9968941357142365    
+2025-05-15 14:33:18,516 - INFO - Iter: 42980    training-loss, overall: 1.1862374544143677    
+2025-05-15 14:33:18,516 - INFO - Iter: 42980    training-metric, acc: 0.9594791666666667    training-metric, auc: 0.9900918473270245    training-metric, eer: 0.028236689236689247    training-metric, ap: 0.9974983781907272    
+2025-05-15 14:35:22,227 - INFO - Iter: 43280    training-loss, overall: 1.3197510242462158    
+2025-05-15 14:35:22,228 - INFO - Iter: 43280    training-metric, acc: 0.9545833333333333    training-metric, auc: 0.9883933665874527    training-metric, eer: 0.02525361112317634    training-metric, ap: 0.9971650271683554    
+2025-05-15 14:37:24,036 - INFO - Iter: 43580    training-loss, overall: 1.1861518621444702    
+2025-05-15 14:37:24,037 - INFO - Iter: 43580    training-metric, acc: 0.96    training-metric, auc: 0.9913950134285612    training-metric, eer: 0.025017556517556522    training-metric, ap: 0.9978317379500604    
+2025-05-15 14:39:30,327 - INFO - Iter: 43880    training-loss, overall: 1.2590489387512207    
+2025-05-15 14:39:30,328 - INFO - Iter: 43880    training-metric, acc: 0.9573958333333333    training-metric, auc: 0.9891541307630061    training-metric, eer: 0.027758389882135703    training-metric, ap: 0.9968505027058133    
+2025-05-15 14:41:35,370 - INFO - Iter: 44180    training-loss, overall: 1.3106552362442017    
+2025-05-15 14:41:35,370 - INFO - Iter: 44180    training-metric, acc: 0.9551041666666666    training-metric, auc: 0.9893382274380296    training-metric, eer: 0.029762376512376523    training-metric, ap: 0.9969464437259042    
+2025-05-15 14:43:38,328 - INFO - Iter: 44480    training-loss, overall: 1.3651646375656128    
+2025-05-15 14:43:38,329 - INFO - Iter: 44480    training-metric, acc: 0.9539583333333334    training-metric, auc: 0.9872953841814206    training-metric, eer: 0.03164578014578014    training-metric, ap: 0.9966411376778175    
+2025-05-15 14:45:40,504 - INFO - Iter: 44780    training-loss, overall: 1.2264095544815063    
+2025-05-15 14:45:40,505 - INFO - Iter: 44780    training-metric, acc: 0.9579166666666666    training-metric, auc: 0.9895056373380483    training-metric, eer: 0.026200096200096203    training-metric, ap: 0.9973998377062586    
+2025-05-15 14:46:56,814 - INFO - ===> Test start!
+2025-05-15 14:46:56,820 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 14:47:09,590 - INFO - dataset: UADFV    step: 44967    testing-loss, overall: 10.601288795471191    
+2025-05-15 14:47:09,592 - INFO - dataset: UADFV    step: 44967    testing-metric, acc: 0.6395611487576638    testing-metric, auc: 0.7329194551485497    testing-metric, eer: 0.3359173126614987    testing-metric, ap: 0.7579498320405336    testing-metric, video_auc: 0.7580174927113703    testing-metric, acc_real:0.6498708010335917; acc_fake:0.6292714377820761
+2025-05-15 14:47:09,593 - INFO - ===> Test Done!
+2025-05-15 14:47:55,406 - INFO - Iter: 45080    training-loss, overall: 1.1397709846496582    
+2025-05-15 14:47:55,407 - INFO - Iter: 45080    training-metric, acc: 0.9616666666666667    training-metric, auc: 0.9901978221648621    training-metric, eer: 0.026710234210234222    training-metric, ap: 0.997397129739548    
+2025-05-15 14:49:58,274 - INFO - Iter: 45380    training-loss, overall: 1.2029939889907837    
+2025-05-15 14:49:58,275 - INFO - Iter: 45380    training-metric, acc: 0.9590625    training-metric, auc: 0.9910992479659849    training-metric, eer: 0.0229253848003848    training-metric, ap: 0.9977939910113137    
+2025-05-15 14:52:00,162 - INFO - Iter: 45680    training-loss, overall: 1.2432997226715088    
+2025-05-15 14:52:00,163 - INFO - Iter: 45680    training-metric, acc: 0.9578125    training-metric, auc: 0.9891711449306326    training-metric, eer: 0.025519565904181293    training-metric, ap: 0.996830455490203    
+2025-05-15 14:54:02,616 - INFO - Iter: 45980    training-loss, overall: 1.261048674583435    
+2025-05-15 14:54:02,617 - INFO - Iter: 45980    training-metric, acc: 0.956875    training-metric, auc: 0.9904731592685637    training-metric, eer: 0.02430627705627706    training-metric, ap: 0.9976294603996708    
+2025-05-15 14:56:05,153 - INFO - Iter: 46280    training-loss, overall: 1.336681842803955    
+2025-05-15 14:56:05,154 - INFO - Iter: 46280    training-metric, acc: 0.9542708333333333    training-metric, auc: 0.9882302443699061    training-metric, eer: 0.023682132682132682    training-metric, ap: 0.9967086461722513    
+2025-05-15 14:58:09,149 - INFO - Iter: 46580    training-loss, overall: 1.1485559940338135    
+2025-05-15 14:58:09,150 - INFO - Iter: 46580    training-metric, acc: 0.9607291666666666    training-metric, auc: 0.9911741985365077    training-metric, eer: 0.019730399230399234    training-metric, ap: 0.997766873200926    
+2025-05-15 15:00:13,076 - INFO - Iter: 46880    training-loss, overall: 1.2235311269760132    
+2025-05-15 15:00:13,077 - INFO - Iter: 46880    training-metric, acc: 0.9583333333333334    training-metric, auc: 0.9885563124708493    training-metric, eer: 0.030267917267917253    training-metric, ap: 0.9967801903544268    
+2025-05-15 15:02:19,139 - INFO - Iter: 47180    training-loss, overall: 1.2181707620620728    
+2025-05-15 15:02:19,140 - INFO - Iter: 47180    training-metric, acc: 0.9585416666666666    training-metric, auc: 0.989623805676413    training-metric, eer: 0.026303104303104296    training-metric, ap: 0.997225931915198    
+2025-05-15 15:04:21,713 - INFO - Iter: 47480    training-loss, overall: 1.4131101369857788    
+2025-05-15 15:04:21,714 - INFO - Iter: 47480    training-metric, acc: 0.9520833333333333    training-metric, auc: 0.9863924838370784    training-metric, eer: 0.03617587967587966    training-metric, ap: 0.9960522247412297    
+2025-05-15 15:06:24,568 - INFO - Iter: 47780    training-loss, overall: 1.24764084815979    
+2025-05-15 15:06:24,568 - INFO - Iter: 47780    training-metric, acc: 0.9570833333333333    training-metric, auc: 0.9885870832929643    training-metric, eer: 0.033758574758574744    training-metric, ap: 0.9969610614817102    
+2025-05-15 15:08:27,690 - INFO - Iter: 48080    training-loss, overall: 1.3821568489074707    
+2025-05-15 15:08:27,691 - INFO - Iter: 48080    training-metric, acc: 0.9527083333333334    training-metric, auc: 0.9859717006103523    training-metric, eer: 0.03262817737817738    training-metric, ap: 0.9962879114341154    
+2025-05-15 15:10:29,651 - INFO - Iter: 48380    training-loss, overall: 1.1883392333984375    
+2025-05-15 15:10:29,651 - INFO - Iter: 48380    training-metric, acc: 0.9598958333333333    training-metric, auc: 0.989205400845221    training-metric, eer: 0.030786556036556025    training-metric, ap: 0.9970445076934271    
+2025-05-15 15:12:32,618 - INFO - Iter: 48680    training-loss, overall: 1.2430342435836792    
+2025-05-15 15:12:32,619 - INFO - Iter: 48680    training-metric, acc: 0.9577083333333334    training-metric, auc: 0.9884082083646357    training-metric, eer: 0.02675180375180376    training-metric, ap: 0.99683670589383    
+2025-05-15 15:14:34,657 - INFO - Iter: 48980    training-loss, overall: 1.239852786064148    
+2025-05-15 15:14:34,658 - INFO - Iter: 48980    training-metric, acc: 0.9575    training-metric, auc: 0.9896138310957616    training-metric, eer: 0.028867667078369415    training-metric, ap: 0.9971130715727999    
+2025-05-15 15:15:05,297 - INFO - ===> Test start!
+2025-05-15 15:15:05,303 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 15:15:17,964 - INFO - dataset: UADFV    step: 49055    testing-loss, overall: 11.157940864562988    
+2025-05-15 15:15:17,965 - INFO - dataset: UADFV    step: 49055    testing-metric, acc: 0.6347208777024846    testing-metric, auc: 0.6888576928779798    testing-metric, eer: 0.3636950904392765    testing-metric, ap: 0.6535688973391425    testing-metric, video_auc: 0.7476051645147855    testing-metric, acc_real:0.648578811369509; acc_fake:0.620889748549323
+2025-05-15 15:15:17,966 - INFO - ===> Test Done!
+2025-05-15 15:15:18,183 - INFO - ===> Epoch[5] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 15:15:18,201 - INFO - ===> Epoch[6] start!
+2025-05-15 15:15:18,653 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 15:15:19,776 - INFO - Iter: 49056    training-loss, overall: 0.8492683172225952    
+2025-05-15 15:15:19,778 - INFO - Iter: 49056    training-metric, acc: 0.96875    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999999    
+2025-05-15 15:17:27,106 - INFO - Iter: 49356    training-loss, overall: 1.0422524213790894    
+2025-05-15 15:17:27,107 - INFO - Iter: 49356    training-metric, acc: 0.9648958333333333    training-metric, auc: 0.9913437726341233    training-metric, eer: 0.027776612276612274    training-metric, ap: 0.997562668990344    
+2025-05-15 15:19:32,218 - INFO - Iter: 49656    training-loss, overall: 1.2040389776229858    
+2025-05-15 15:19:32,219 - INFO - Iter: 49656    training-metric, acc: 0.9586458333333333    training-metric, auc: 0.990676772038905    training-metric, eer: 0.022020359270359276    training-metric, ap: 0.9975512328724778    
+2025-05-15 15:21:36,758 - INFO - Iter: 49956    training-loss, overall: 1.2233046293258667    
+2025-05-15 15:21:36,759 - INFO - Iter: 49956    training-metric, acc: 0.9585416666666666    training-metric, auc: 0.9896507162528392    training-metric, eer: 0.02972418322418322    training-metric, ap: 0.9971588284065718    
+2025-05-15 15:23:38,784 - INFO - Iter: 50256    training-loss, overall: 1.2301969528198242    
+2025-05-15 15:23:38,785 - INFO - Iter: 50256    training-metric, acc: 0.9582291666666667    training-metric, auc: 0.9890847628105206    training-metric, eer: 0.02683513708513709    training-metric, ap: 0.997083866015922    
+2025-05-15 15:25:40,886 - INFO - Iter: 50556    training-loss, overall: 1.2585746049880981    
+2025-05-15 15:25:40,887 - INFO - Iter: 50556    training-metric, acc: 0.956875    training-metric, auc: 0.9899935420495289    training-metric, eer: 0.026098244348244346    training-metric, ap: 0.9972269181950755    
+2025-05-15 15:27:43,135 - INFO - Iter: 50856    training-loss, overall: 1.096023440361023    
+2025-05-15 15:27:43,135 - INFO - Iter: 50856    training-metric, acc: 0.9626041666666667    training-metric, auc: 0.9921109210996825    training-metric, eer: 0.018155760905760907    training-metric, ap: 0.9976841493478719    
+2025-05-15 15:29:45,657 - INFO - Iter: 51156    training-loss, overall: 1.0990841388702393    
+2025-05-15 15:29:45,658 - INFO - Iter: 51156    training-metric, acc: 0.9626041666666667    training-metric, auc: 0.9903778636822149    training-metric, eer: 0.02125986050986051    training-metric, ap: 0.9975376093333798    
+2025-05-15 15:31:49,160 - INFO - Iter: 51456    training-loss, overall: 1.0735951662063599    
+2025-05-15 15:31:49,161 - INFO - Iter: 51456    training-metric, acc: 0.9636458333333333    training-metric, auc: 0.9916446061934682    training-metric, eer: 0.022344192844192846    training-metric, ap: 0.9978013873299818    
+2025-05-15 15:33:51,609 - INFO - Iter: 51756    training-loss, overall: 1.228364109992981    
+2025-05-15 15:33:51,610 - INFO - Iter: 51756    training-metric, acc: 0.9580208333333333    training-metric, auc: 0.987114557285506    training-metric, eer: 0.032252802752802734    training-metric, ap: 0.9966561207526626    
+2025-05-15 15:35:53,790 - INFO - Iter: 52056    training-loss, overall: 1.1125229597091675    
+2025-05-15 15:35:53,791 - INFO - Iter: 52056    training-metric, acc: 0.9617708333333334    training-metric, auc: 0.9900309190542717    training-metric, eer: 0.020971297221297213    training-metric, ap: 0.9972679661555115    
+2025-05-15 15:37:56,476 - INFO - Iter: 52356    training-loss, overall: 1.1467970609664917    
+2025-05-15 15:37:56,477 - INFO - Iter: 52356    training-metric, acc: 0.9614583333333333    training-metric, auc: 0.9895209720775239    training-metric, eer: 0.025625578125578134    training-metric, ap: 0.9972668468162112    
+2025-05-15 15:39:59,783 - INFO - Iter: 52656    training-loss, overall: 1.0621516704559326    
+2025-05-15 15:39:59,784 - INFO - Iter: 52656    training-metric, acc: 0.9639583333333334    training-metric, auc: 0.9921299038481406    training-metric, eer: 0.017255772005772007    training-metric, ap: 0.9980286061823875    
+2025-05-15 15:42:04,177 - INFO - Iter: 52956    training-loss, overall: 1.0608837604522705    
+2025-05-15 15:42:04,178 - INFO - Iter: 52956    training-metric, acc: 0.9638541666666667    training-metric, auc: 0.9913863898306274    training-metric, eer: 0.022299302549302548    training-metric, ap: 0.9976814408213729    
+2025-05-15 15:43:22,240 - INFO - ===> Test start!
+2025-05-15 15:43:22,246 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 15:43:34,826 - INFO - dataset: UADFV    step: 53143    testing-loss, overall: 12.290990829467773    
+2025-05-15 15:43:34,828 - INFO - dataset: UADFV    step: 53143    testing-metric, acc: 0.5827686350435625    testing-metric, auc: 0.6658317881103631    testing-metric, eer: 0.39276485788113696    testing-metric, ap: 0.6852302487242382    testing-metric, video_auc: 0.6693044564764682    testing-metric, acc_real:0.5891472868217055; acc_fake:0.5764023210831721
+2025-05-15 15:43:34,828 - INFO - ===> Test Done!
+2025-05-15 15:44:21,540 - INFO - Iter: 53256    training-loss, overall: 1.2046838998794556    
+2025-05-15 15:44:21,541 - INFO - Iter: 53256    training-metric, acc: 0.9586458333333333    training-metric, auc: 0.9899147685104857    training-metric, eer: 0.02764622414622415    training-metric, ap: 0.9974554777070497    
+2025-05-15 15:46:25,673 - INFO - Iter: 53556    training-loss, overall: 1.2045549154281616    
+2025-05-15 15:46:25,673 - INFO - Iter: 53556    training-metric, acc: 0.9588541666666667    training-metric, auc: 0.9895474057684109    training-metric, eer: 0.03051829189329189    training-metric, ap: 0.9970772481639572    
+2025-05-15 15:48:29,182 - INFO - Iter: 53856    training-loss, overall: 0.9939214587211609    
+2025-05-15 15:48:29,183 - INFO - Iter: 53856    training-metric, acc: 0.9664583333333333    training-metric, auc: 0.9924368490375396    training-metric, eer: 0.019582611832611833    training-metric, ap: 0.9980703812852875    
+2025-05-15 15:50:33,700 - INFO - Iter: 54156    training-loss, overall: 1.2157305479049683    
+2025-05-15 15:50:33,701 - INFO - Iter: 54156    training-metric, acc: 0.9589583333333334    training-metric, auc: 0.9902932609893704    training-metric, eer: 0.024917508417508415    training-metric, ap: 0.9972723105993078    
+2025-05-15 15:52:39,015 - INFO - Iter: 54456    training-loss, overall: 1.0851150751113892    
+2025-05-15 15:52:39,016 - INFO - Iter: 54456    training-metric, acc: 0.9633333333333334    training-metric, auc: 0.991603918052547    training-metric, eer: 0.021962278462278457    training-metric, ap: 0.997583399791518    
+2025-05-15 15:54:43,808 - INFO - Iter: 54756    training-loss, overall: 1.2781553268432617    
+2025-05-15 15:54:43,809 - INFO - Iter: 54756    training-metric, acc: 0.9561458333333334    training-metric, auc: 0.9884876895856967    training-metric, eer: 0.030897604810648294    training-metric, ap: 0.9968842682613233    
+2025-05-15 15:56:48,500 - INFO - Iter: 55056    training-loss, overall: 1.0740090608596802    
+2025-05-15 15:56:48,501 - INFO - Iter: 55056    training-metric, acc: 0.9633333333333334    training-metric, auc: 0.9922181824994505    training-metric, eer: 0.023438672438672432    training-metric, ap: 0.9977098178090106    
+2025-05-15 15:58:52,674 - INFO - Iter: 55356    training-loss, overall: 1.0600521564483643    
+2025-05-15 15:58:52,675 - INFO - Iter: 55356    training-metric, acc: 0.9640625    training-metric, auc: 0.9928298072315592    training-metric, eer: 0.018028536278536282    training-metric, ap: 0.9980136833364285    
+2025-05-15 16:00:57,283 - INFO - Iter: 55656    training-loss, overall: 1.0365294218063354    
+2025-05-15 16:00:57,284 - INFO - Iter: 55656    training-metric, acc: 0.9655208333333334    training-metric, auc: 0.9924613318076563    training-metric, eer: 0.023295062425497202    training-metric, ap: 0.997993123799929    
+2025-05-15 16:03:02,173 - INFO - Iter: 55956    training-loss, overall: 1.2107967138290405    
+2025-05-15 16:03:02,174 - INFO - Iter: 55956    training-metric, acc: 0.9589583333333334    training-metric, auc: 0.9904387304462287    training-metric, eer: 0.024088254338254348    training-metric, ap: 0.9974317041300557    
+2025-05-15 16:05:07,041 - INFO - Iter: 56256    training-loss, overall: 1.263656735420227    
+2025-05-15 16:05:07,042 - INFO - Iter: 56256    training-metric, acc: 0.9564583333333333    training-metric, auc: 0.9903403225040317    training-metric, eer: 0.030633792133792137    training-metric, ap: 0.9971155912568808    
+2025-05-15 16:07:12,145 - INFO - Iter: 56556    training-loss, overall: 1.15701162815094    
+2025-05-15 16:07:12,146 - INFO - Iter: 56556    training-metric, acc: 0.9615625    training-metric, auc: 0.9907306170243356    training-metric, eer: 0.026240851740851744    training-metric, ap: 0.9973075819157036    
+2025-05-15 16:09:14,374 - INFO - Iter: 56856    training-loss, overall: 1.2087081670761108    
+2025-05-15 16:09:14,375 - INFO - Iter: 56856    training-metric, acc: 0.9595833333333333    training-metric, auc: 0.9888996809576764    training-metric, eer: 0.0259225727975728    training-metric, ap: 0.9968650963205505    
+2025-05-15 16:11:16,632 - INFO - Iter: 57156    training-loss, overall: 1.1189631223678589    
+2025-05-15 16:11:16,632 - INFO - Iter: 57156    training-metric, acc: 0.9619791666666667    training-metric, auc: 0.9913273720504792    training-metric, eer: 0.01971576571576572    training-metric, ap: 0.9976263542759699    
+2025-05-15 16:11:47,449 - INFO - ===> Test start!
+2025-05-15 16:11:47,456 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 16:12:00,024 - INFO - dataset: UADFV    step: 57231    testing-loss, overall: 10.320496559143066    
+2025-05-15 16:12:00,026 - INFO - dataset: UADFV    step: 57231    testing-metric, acc: 0.6563407550822846    testing-metric, auc: 0.7592169842912049    testing-metric, eer: 0.29780361757105944    testing-metric, ap: 0.7506693000094647    testing-metric, video_auc: 0.7746772178259058    testing-metric, acc_real:0.6550387596899225; acc_fake:0.6576402321083172
+2025-05-15 16:12:00,026 - INFO - ===> Test Done!
+2025-05-15 16:12:00,303 - INFO - ===> Epoch[6] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 16:12:00,322 - INFO - ===> Epoch[7] start!
+2025-05-15 16:12:00,780 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 16:12:01,905 - INFO - Iter: 57232    training-loss, overall: 0.357168585062027    
+2025-05-15 16:12:01,906 - INFO - Iter: 57232    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 1.0    
+2025-05-15 16:14:04,502 - INFO - Iter: 57532    training-loss, overall: 1.0834155082702637    
+2025-05-15 16:14:04,503 - INFO - Iter: 57532    training-metric, acc: 0.9629166666666666    training-metric, auc: 0.9903898953279779    training-metric, eer: 0.023964683464683466    training-metric, ap: 0.9974647916714491    
+2025-05-15 16:16:06,689 - INFO - Iter: 57832    training-loss, overall: 1.0149198770523071    
+2025-05-15 16:16:06,690 - INFO - Iter: 57832    training-metric, acc: 0.9654166666666667    training-metric, auc: 0.9937834458229063    training-metric, eer: 0.018548137048137056    training-metric, ap: 0.9982795324780739    
+2025-05-15 16:18:08,815 - INFO - Iter: 58132    training-loss, overall: 1.0203616619110107    
+2025-05-15 16:18:08,815 - INFO - Iter: 58132    training-metric, acc: 0.965    training-metric, auc: 0.9924897286487362    training-metric, eer: 0.021759499759499756    training-metric, ap: 0.9979915919700019    
+2025-05-15 16:20:10,390 - INFO - Iter: 58432    training-loss, overall: 1.0569608211517334    
+2025-05-15 16:20:10,390 - INFO - Iter: 58432    training-metric, acc: 0.9639583333333334    training-metric, auc: 0.9927100949342946    training-metric, eer: 0.019780580530580537    training-metric, ap: 0.9979481665341287    
+2025-05-15 16:22:14,730 - INFO - Iter: 58732    training-loss, overall: 1.1735355854034424    
+2025-05-15 16:22:14,730 - INFO - Iter: 58732    training-metric, acc: 0.9597916666666667    training-metric, auc: 0.9899266041388464    training-metric, eer: 0.02551663312532878    training-metric, ap: 0.9973458045556884    
+2025-05-15 16:24:21,806 - INFO - Iter: 59032    training-loss, overall: 1.1529669761657715    
+2025-05-15 16:24:21,807 - INFO - Iter: 59032    training-metric, acc: 0.9603125    training-metric, auc: 0.9904947134780037    training-metric, eer: 0.025206219706219703    training-metric, ap: 0.9974091075680921    
+2025-05-15 16:26:23,973 - INFO - Iter: 59332    training-loss, overall: 0.9914315938949585    
+2025-05-15 16:26:23,974 - INFO - Iter: 59332    training-metric, acc: 0.9660416666666667    training-metric, auc: 0.9929686044806929    training-metric, eer: 0.01769736744736744    training-metric, ap: 0.9981313544023442    
+2025-05-15 16:28:28,377 - INFO - Iter: 59632    training-loss, overall: 0.973138153553009    
+2025-05-15 16:28:28,378 - INFO - Iter: 59632    training-metric, acc: 0.9670833333333333    training-metric, auc: 0.9919094068490278    training-metric, eer: 0.022959956709956708    training-metric, ap: 0.9977882115589948    
+2025-05-15 16:30:32,228 - INFO - Iter: 59932    training-loss, overall: 1.224602460861206    
+2025-05-15 16:30:32,228 - INFO - Iter: 59932    training-metric, acc: 0.9578125    training-metric, auc: 0.989692510374392    training-metric, eer: 0.02978149628149628    training-metric, ap: 0.997372631898142    
+2025-05-15 16:32:34,735 - INFO - Iter: 60232    training-loss, overall: 0.964955747127533    
+2025-05-15 16:32:34,736 - INFO - Iter: 60232    training-metric, acc: 0.9673958333333333    training-metric, auc: 0.9920570714278673    training-metric, eer: 0.016655242905242902    training-metric, ap: 0.9980221558445339    
+2025-05-15 16:34:36,945 - INFO - Iter: 60532    training-loss, overall: 1.141369342803955    
+2025-05-15 16:34:36,946 - INFO - Iter: 60532    training-metric, acc: 0.96125    training-metric, auc: 0.9912738865882915    training-metric, eer: 0.026199726199726204    training-metric, ap: 0.9974839120329206    
+2025-05-15 16:36:38,829 - INFO - Iter: 60832    training-loss, overall: 1.035874843597412    
+2025-05-15 16:36:38,830 - INFO - Iter: 60832    training-metric, acc: 0.9654166666666667    training-metric, auc: 0.9912688884570285    training-metric, eer: 0.02009246791855487    training-metric, ap: 0.9975412276603385    
+2025-05-15 16:38:40,599 - INFO - Iter: 61132    training-loss, overall: 0.9961358904838562    
+2025-05-15 16:38:40,600 - INFO - Iter: 61132    training-metric, acc: 0.96625    training-metric, auc: 0.9930518411974681    training-metric, eer: 0.01995117845117846    training-metric, ap: 0.9980410263170533    
+2025-05-15 16:39:57,617 - INFO - ===> Test start!
+2025-05-15 16:39:57,624 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 16:40:10,512 - INFO - dataset: UADFV    step: 61319    testing-loss, overall: 11.129857063293457    
+2025-05-15 16:40:10,514 - INFO - dataset: UADFV    step: 61319    testing-metric, acc: 0.627621813488222    testing-metric, auc: 0.7179813973480476    testing-metric, eer: 0.3372093023255814    testing-metric, ap: 0.7290184760559272    testing-metric, video_auc: 0.741774260724698    testing-metric, acc_real:0.6304909560723514; acc_fake:0.6247582205029013
+2025-05-15 16:40:10,514 - INFO - ===> Test Done!
+2025-05-15 16:40:58,087 - INFO - Iter: 61432    training-loss, overall: 1.0654067993164062    
+2025-05-15 16:40:58,088 - INFO - Iter: 61432    training-metric, acc: 0.9640625    training-metric, auc: 0.9916563054666132    training-metric, eer: 0.020071585821585827    training-metric, ap: 0.99790631442285    
+2025-05-15 16:43:03,690 - INFO - Iter: 61732    training-loss, overall: 1.144468069076538    
+2025-05-15 16:43:03,691 - INFO - Iter: 61732    training-metric, acc: 0.9608333333333333    training-metric, auc: 0.9896264521702263    training-metric, eer: 0.02773861323861325    training-metric, ap: 0.9971143066291164    
+2025-05-15 16:45:09,120 - INFO - Iter: 62032    training-loss, overall: 1.1178710460662842    
+2025-05-15 16:45:09,121 - INFO - Iter: 62032    training-metric, acc: 0.961875    training-metric, auc: 0.9912661982960219    training-metric, eer: 0.022764467014467014    training-metric, ap: 0.9977689410513313    
+2025-05-15 16:47:12,864 - INFO - Iter: 62332    training-loss, overall: 1.092010736465454    
+2025-05-15 16:47:12,865 - INFO - Iter: 62332    training-metric, acc: 0.9625    training-metric, auc: 0.9933660412294771    training-metric, eer: 0.01867291042291042    training-metric, ap: 0.9982728919401231    
+2025-05-15 16:49:17,764 - INFO - Iter: 62632    training-loss, overall: 0.9842236638069153    
+2025-05-15 16:49:17,765 - INFO - Iter: 62632    training-metric, acc: 0.9669791666666666    training-metric, auc: 0.9932631036879161    training-metric, eer: 0.017322751322751323    training-metric, ap: 0.9983638405444746    
+2025-05-15 16:51:22,415 - INFO - Iter: 62932    training-loss, overall: 1.0702099800109863    
+2025-05-15 16:51:22,416 - INFO - Iter: 62932    training-metric, acc: 0.9641666666666666    training-metric, auc: 0.9911921132648325    training-metric, eer: 0.019269119769119766    training-metric, ap: 0.9976419029489629    
+2025-05-15 16:53:26,980 - INFO - Iter: 63232    training-loss, overall: 1.0535963773727417    
+2025-05-15 16:53:26,981 - INFO - Iter: 63232    training-metric, acc: 0.9636458333333333    training-metric, auc: 0.9926292803131537    training-metric, eer: 0.017927729677729674    training-metric, ap: 0.9978930235765235    
+2025-05-15 16:55:30,197 - INFO - Iter: 63532    training-loss, overall: 1.0686275959014893    
+2025-05-15 16:55:30,198 - INFO - Iter: 63532    training-metric, acc: 0.9635416666666666    training-metric, auc: 0.9923442613845482    training-metric, eer: 0.01994679419428583    training-metric, ap: 0.9979879829470013    
+2025-05-15 16:57:32,705 - INFO - Iter: 63832    training-loss, overall: 1.05682373046875    
+2025-05-15 16:57:32,706 - INFO - Iter: 63832    training-metric, acc: 0.9634375    training-metric, auc: 0.9917586950185415    training-metric, eer: 0.02175743238243238    training-metric, ap: 0.9978930870022956    
+2025-05-15 16:59:35,297 - INFO - Iter: 64132    training-loss, overall: 1.018600583076477    
+2025-05-15 16:59:35,298 - INFO - Iter: 64132    training-metric, acc: 0.9657291666666666    training-metric, auc: 0.9933925709192105    training-metric, eer: 0.017503006253006253    training-metric, ap: 0.9982510855613868    
+2025-05-15 17:01:39,796 - INFO - Iter: 64432    training-loss, overall: 0.974425196647644    
+2025-05-15 17:01:39,796 - INFO - Iter: 64432    training-metric, acc: 0.9666666666666667    training-metric, auc: 0.9935077882170208    training-metric, eer: 0.012577080327080326    training-metric, ap: 0.9983463376766686    
+2025-05-15 17:03:44,547 - INFO - Iter: 64732    training-loss, overall: 1.0025749206542969    
+2025-05-15 17:03:44,548 - INFO - Iter: 64732    training-metric, acc: 0.9658333333333333    training-metric, auc: 0.9908820618026298    training-metric, eer: 0.02251671476671476    training-metric, ap: 0.9975838404580242    
+2025-05-15 17:05:49,295 - INFO - Iter: 65032    training-loss, overall: 1.0015673637390137    
+2025-05-15 17:05:49,296 - INFO - Iter: 65032    training-metric, acc: 0.9655208333333334    training-metric, auc: 0.9929592497006848    training-metric, eer: 0.01797174122174123    training-metric, ap: 0.9982263414679535    
+2025-05-15 17:07:53,963 - INFO - Iter: 65332    training-loss, overall: 1.1256248950958252    
+2025-05-15 17:07:53,964 - INFO - Iter: 65332    training-metric, acc: 0.9613541666666666    training-metric, auc: 0.9914135269320087    training-metric, eer: 0.021470719095719095    training-metric, ap: 0.9977330143799225    
+2025-05-15 17:08:24,962 - INFO - ===> Test start!
+2025-05-15 17:08:24,969 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 17:08:37,941 - INFO - dataset: UADFV    step: 65407    testing-loss, overall: 9.53036117553711    
+2025-05-15 17:08:37,942 - INFO - dataset: UADFV    step: 65407    testing-metric, acc: 0.6937721845756696    testing-metric, auc: 0.7588704545038044    testing-metric, eer: 0.31007751937984496    testing-metric, ap: 0.7282032272745764    testing-metric, video_auc: 0.7942523948354852    testing-metric, acc_real:0.6957364341085271; acc_fake:0.6918117343649258
+2025-05-15 17:08:37,943 - INFO - ===> Test Done!
+2025-05-15 17:08:38,191 - INFO - ===> Epoch[7] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 17:08:38,209 - INFO - ===> Epoch[8] start!
+2025-05-15 17:08:38,668 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 17:08:39,801 - INFO - Iter: 65408    training-loss, overall: 0.03949132189154625    
+2025-05-15 17:08:39,802 - INFO - Iter: 65408    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999999    
+2025-05-15 17:10:43,481 - INFO - Iter: 65708    training-loss, overall: 0.9626303315162659    
+2025-05-15 17:10:43,482 - INFO - Iter: 65708    training-metric, acc: 0.9675    training-metric, auc: 0.9923684003202959    training-metric, eer: 0.017622053872053872    training-metric, ap: 0.9979393393667827    
+2025-05-15 17:12:45,477 - INFO - Iter: 66008    training-loss, overall: 0.9634029269218445    
+2025-05-15 17:12:45,478 - INFO - Iter: 66008    training-metric, acc: 0.9671875    training-metric, auc: 0.992350795140341    training-metric, eer: 0.020593193843193847    training-metric, ap: 0.9980936365233449    
+2025-05-15 17:14:49,607 - INFO - Iter: 66308    training-loss, overall: 0.9674460291862488    
+2025-05-15 17:14:49,608 - INFO - Iter: 66308    training-metric, acc: 0.9670833333333333    training-metric, auc: 0.9919901127208766    training-metric, eer: 0.023376817626817634    training-metric, ap: 0.9978930856336675    
+2025-05-15 17:16:51,511 - INFO - Iter: 66608    training-loss, overall: 0.9663946628570557    
+2025-05-15 17:16:51,512 - INFO - Iter: 66608    training-metric, acc: 0.9669791666666666    training-metric, auc: 0.9926462768084076    training-metric, eer: 0.018656325156325152    training-metric, ap: 0.9980350460542756    
+2025-05-15 17:18:53,504 - INFO - Iter: 66908    training-loss, overall: 0.9855213761329651    
+2025-05-15 17:18:53,505 - INFO - Iter: 66908    training-metric, acc: 0.9665625    training-metric, auc: 0.99156652448464    training-metric, eer: 0.022232202982202978    training-metric, ap: 0.9976430713389084    
+2025-05-15 17:20:56,612 - INFO - Iter: 67208    training-loss, overall: 0.9568765759468079    
+2025-05-15 17:20:56,613 - INFO - Iter: 67208    training-metric, acc: 0.9676041666666667    training-metric, auc: 0.9926200369079148    training-metric, eer: 0.021686526034352123    training-metric, ap: 0.9980412596882802    
+2025-05-15 17:22:59,516 - INFO - Iter: 67508    training-loss, overall: 0.9457241296768188    
+2025-05-15 17:22:59,517 - INFO - Iter: 67508    training-metric, acc: 0.968125    training-metric, auc: 0.9938678869548371    training-metric, eer: 0.018276936026936027    training-metric, ap: 0.9983558177246696    
+2025-05-15 17:25:01,028 - INFO - Iter: 67808    training-loss, overall: 1.0368164777755737    
+2025-05-15 17:25:01,029 - INFO - Iter: 67808    training-metric, acc: 0.9644791666666667    training-metric, auc: 0.9923539489324836    training-metric, eer: 0.019781024531024538    training-metric, ap: 0.9978252804054659    
+2025-05-15 17:27:04,373 - INFO - Iter: 68108    training-loss, overall: 1.0818570852279663    
+2025-05-15 17:27:04,374 - INFO - Iter: 68108    training-metric, acc: 0.96375    training-metric, auc: 0.9916121782166325    training-metric, eer: 0.022180856180856186    training-metric, ap: 0.9976453764384136    
+2025-05-15 17:29:08,794 - INFO - Iter: 68408    training-loss, overall: 1.0157843828201294    
+2025-05-15 17:29:08,794 - INFO - Iter: 68408    training-metric, acc: 0.9655208333333334    training-metric, auc: 0.991979469935424    training-metric, eer: 0.01689566472175167    training-metric, ap: 0.997895511005471    
+2025-05-15 17:31:11,766 - INFO - Iter: 68708    training-loss, overall: 1.0043559074401855    
+2025-05-15 17:31:11,766 - INFO - Iter: 68708    training-metric, acc: 0.9654166666666667    training-metric, auc: 0.9930280005761417    training-metric, eer: 0.019162013912013918    training-metric, ap: 0.9981384353343498    
+2025-05-15 17:33:15,329 - INFO - Iter: 69008    training-loss, overall: 0.868486225605011    
+2025-05-15 17:33:15,330 - INFO - Iter: 69008    training-metric, acc: 0.9709375    training-metric, auc: 0.9936293832705871    training-metric, eer: 0.01605880230880231    training-metric, ap: 0.9982918511094262    
+2025-05-15 17:35:19,275 - INFO - Iter: 69308    training-loss, overall: 0.9401401281356812    
+2025-05-15 17:35:19,275 - INFO - Iter: 69308    training-metric, acc: 0.968125    training-metric, auc: 0.9938313296299314    training-metric, eer: 0.017139503009068222    training-metric, ap: 0.9982998071145471    
+2025-05-15 17:36:35,422 - INFO - ===> Test start!
+2025-05-15 17:36:35,428 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 17:36:48,079 - INFO - dataset: UADFV    step: 69495    testing-loss, overall: 11.46059799194336    
+2025-05-15 17:36:48,081 - INFO - dataset: UADFV    step: 69495    testing-metric, acc: 0.6231042271700549    testing-metric, auc: 0.6919460563077584    testing-metric, eer: 0.355297157622739    testing-metric, ap: 0.6902915718204783    testing-metric, video_auc: 0.7088713036234902    testing-metric, acc_real:0.6311369509043928; acc_fake:0.6150870406189555
+2025-05-15 17:36:48,082 - INFO - ===> Test Done!
+2025-05-15 17:37:34,071 - INFO - Iter: 69608    training-loss, overall: 0.8959862589836121    
+2025-05-15 17:37:34,072 - INFO - Iter: 69608    training-metric, acc: 0.969375    training-metric, auc: 0.99444477122113    training-metric, eer: 0.013135521885521884    training-metric, ap: 0.998551203459226    
+2025-05-15 17:39:36,576 - INFO - Iter: 69908    training-loss, overall: 0.906669020652771    
+2025-05-15 17:39:36,577 - INFO - Iter: 69908    training-metric, acc: 0.9694791666666667    training-metric, auc: 0.9943783492556248    training-metric, eer: 0.016583370333370328    training-metric, ap: 0.9982498069524354    
+2025-05-15 17:41:38,544 - INFO - Iter: 70208    training-loss, overall: 1.0605477094650269    
+2025-05-15 17:41:38,545 - INFO - Iter: 70208    training-metric, acc: 0.96375    training-metric, auc: 0.992883740212352    training-metric, eer: 0.017053307803307806    training-metric, ap: 0.9981013931455422    
+2025-05-15 17:43:40,847 - INFO - Iter: 70508    training-loss, overall: 0.9451166987419128    
+2025-05-15 17:43:40,848 - INFO - Iter: 70508    training-metric, acc: 0.9682291666666667    training-metric, auc: 0.9926001603675432    training-metric, eer: 0.018951335701335698    training-metric, ap: 0.9979300664334816    
+2025-05-15 17:45:43,682 - INFO - Iter: 70808    training-loss, overall: 0.8904637694358826    
+2025-05-15 17:45:43,683 - INFO - Iter: 70808    training-metric, acc: 0.9698958333333333    training-metric, auc: 0.9946047391430699    training-metric, eer: 0.01246969696969697    training-metric, ap: 0.9985879166602706    
+2025-05-15 17:47:45,706 - INFO - Iter: 71108    training-loss, overall: 0.903700590133667    
+2025-05-15 17:47:45,707 - INFO - Iter: 71108    training-metric, acc: 0.9696875    training-metric, auc: 0.9932662907483245    training-metric, eer: 0.020355820105820106    training-metric, ap: 0.9982652876151716    
+2025-05-15 17:49:47,524 - INFO - Iter: 71408    training-loss, overall: 1.0069736242294312    
+2025-05-15 17:49:47,525 - INFO - Iter: 71408    training-metric, acc: 0.9659375    training-metric, auc: 0.9929242667277113    training-metric, eer: 0.017801948051948048    training-metric, ap: 0.998009293267383    
+2025-05-15 17:51:50,428 - INFO - Iter: 71708    training-loss, overall: 0.9558030366897583    
+2025-05-15 17:51:50,429 - INFO - Iter: 71708    training-metric, acc: 0.9672916666666667    training-metric, auc: 0.9935174380112316    training-metric, eer: 0.0193032708032708    training-metric, ap: 0.9980820304901052    
+2025-05-15 17:53:52,641 - INFO - Iter: 72008    training-loss, overall: 0.9223049879074097    
+2025-05-15 17:53:52,642 - INFO - Iter: 72008    training-metric, acc: 0.9691666666666666    training-metric, auc: 0.9935375928682469    training-metric, eer: 0.017676203426203428    training-metric, ap: 0.9982218884131313    
+2025-05-15 17:55:54,650 - INFO - Iter: 72308    training-loss, overall: 0.8101710081100464    
+2025-05-15 17:55:54,651 - INFO - Iter: 72308    training-metric, acc: 0.9725    training-metric, auc: 0.9944912131155133    training-metric, eer: 0.01263058238058238    training-metric, ap: 0.9985143195939304    
+2025-05-15 17:57:56,334 - INFO - Iter: 72608    training-loss, overall: 0.8863152265548706    
+2025-05-15 17:57:56,334 - INFO - Iter: 72608    training-metric, acc: 0.9698958333333333    training-metric, auc: 0.9938068112987618    training-metric, eer: 0.015935582935582938    training-metric, ap: 0.9982627086617472    
+2025-05-15 17:59:58,786 - INFO - Iter: 72908    training-loss, overall: 0.9518458247184753    
+2025-05-15 17:59:58,787 - INFO - Iter: 72908    training-metric, acc: 0.9673958333333333    training-metric, auc: 0.993234846777572    training-metric, eer: 0.02010822510822511    training-metric, ap: 0.998070205662577    
+2025-05-15 18:02:02,204 - INFO - Iter: 73208    training-loss, overall: 0.9088704586029053    
+2025-05-15 18:02:02,205 - INFO - Iter: 73208    training-metric, acc: 0.9692708333333333    training-metric, auc: 0.9941388452881385    training-metric, eer: 0.015574351574351575    training-metric, ap: 0.9983670179969429    
+2025-05-15 18:04:05,964 - INFO - Iter: 73508    training-loss, overall: 0.9877268671989441    
+2025-05-15 18:04:05,965 - INFO - Iter: 73508    training-metric, acc: 0.9665625    training-metric, auc: 0.9926484975712497    training-metric, eer: 0.018482841232841236    training-metric, ap: 0.9980470536696576    
+2025-05-15 18:04:36,701 - INFO - ===> Test start!
+2025-05-15 18:04:36,708 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 18:04:49,504 - INFO - dataset: UADFV    step: 73583    testing-loss, overall: 11.414978981018066    
+2025-05-15 18:04:49,507 - INFO - dataset: UADFV    step: 73583    testing-metric, acc: 0.6340755082284608    testing-metric, auc: 0.6988043889330381    testing-metric, eer: 0.355297157622739    testing-metric, ap: 0.6879751455605668    testing-metric, video_auc: 0.7242815493544357    testing-metric, acc_real:0.6382428940568475; acc_fake:0.6299161831076725
+2025-05-15 18:04:49,507 - INFO - ===> Test Done!
+2025-05-15 18:04:49,796 - INFO - ===> Epoch[8] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 18:04:49,813 - INFO - ===> Epoch[9] start!
+2025-05-15 18:04:50,285 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 18:04:51,456 - INFO - Iter: 73584    training-loss, overall: 1.8465098142623901    
+2025-05-15 18:04:51,457 - INFO - Iter: 73584    training-metric, acc: 0.9375    training-metric, auc: 0.9942857142857143    training-metric, eer: 0.0    training-metric, ap: 0.9984615384615385    
+2025-05-15 18:06:53,615 - INFO - Iter: 73884    training-loss, overall: 0.9082910418510437    
+2025-05-15 18:06:53,616 - INFO - Iter: 73884    training-metric, acc: 0.969375    training-metric, auc: 0.9934895319725405    training-metric, eer: 0.014645659895659895    training-metric, ap: 0.998359184461764    
+2025-05-15 18:08:57,319 - INFO - Iter: 74184    training-loss, overall: 0.9288069605827332    
+2025-05-15 18:08:57,319 - INFO - Iter: 74184    training-metric, acc: 0.9682291666666667    training-metric, auc: 0.9948907900514723    training-metric, eer: 0.012413059163059164    training-metric, ap: 0.9986206804518258    
+2025-05-15 18:10:59,818 - INFO - Iter: 74484    training-loss, overall: 0.9366540908813477    
+2025-05-15 18:10:59,819 - INFO - Iter: 74484    training-metric, acc: 0.9686458333333333    training-metric, auc: 0.9934614420513409    training-metric, eer: 0.015552188552188552    training-metric, ap: 0.998275014015412    
+2025-05-15 18:13:02,092 - INFO - Iter: 74784    training-loss, overall: 0.8939748406410217    
+2025-05-15 18:13:02,093 - INFO - Iter: 74784    training-metric, acc: 0.9697916666666667    training-metric, auc: 0.9931374021212379    training-metric, eer: 0.017024957576797038    training-metric, ap: 0.997998657537018    
+2025-05-15 18:15:06,180 - INFO - Iter: 75084    training-loss, overall: 0.8554638624191284    
+2025-05-15 18:15:06,181 - INFO - Iter: 75084    training-metric, acc: 0.9707291666666666    training-metric, auc: 0.9939139433831199    training-metric, eer: 0.016654798904798908    training-metric, ap: 0.9983986396359461    
+2025-05-15 18:17:09,030 - INFO - Iter: 75384    training-loss, overall: 0.9406012296676636    
+2025-05-15 18:17:09,031 - INFO - Iter: 75384    training-metric, acc: 0.9677083333333333    training-metric, auc: 0.9941859130215392    training-metric, eer: 0.01675023230207177    training-metric, ap: 0.9983737325609451    
+2025-05-15 18:19:11,113 - INFO - Iter: 75684    training-loss, overall: 0.9245163202285767    
+2025-05-15 18:19:11,114 - INFO - Iter: 75684    training-metric, acc: 0.968125    training-metric, auc: 0.9953476597431528    training-metric, eer: 0.011795334295334298    training-metric, ap: 0.9987167050489956    
+2025-05-15 18:21:13,587 - INFO - Iter: 75984    training-loss, overall: 0.9168119430541992    
+2025-05-15 18:21:13,588 - INFO - Iter: 75984    training-metric, acc: 0.9685416666666666    training-metric, auc: 0.9934841352346427    training-metric, eer: 0.01639048914048914    training-metric, ap: 0.9983068291012243    
+2025-05-15 18:23:16,639 - INFO - Iter: 76284    training-loss, overall: 0.8522526025772095    
+2025-05-15 18:23:16,640 - INFO - Iter: 76284    training-metric, acc: 0.9715625    training-metric, auc: 0.9939508976038278    training-metric, eer: 0.014324231324231324    training-metric, ap: 0.9984079382923666    
+2025-05-15 18:25:19,136 - INFO - Iter: 76584    training-loss, overall: 0.9124929308891296    
+2025-05-15 18:25:19,137 - INFO - Iter: 76584    training-metric, acc: 0.9690625    training-metric, auc: 0.9923154185229547    training-metric, eer: 0.019930254930254937    training-metric, ap: 0.9979793013120766    
+2025-05-15 18:27:21,501 - INFO - Iter: 76884    training-loss, overall: 0.8581974506378174    
+2025-05-15 18:27:21,502 - INFO - Iter: 76884    training-metric, acc: 0.9716666666666667    training-metric, auc: 0.9938266695065074    training-metric, eer: 0.015368881118881118    training-metric, ap: 0.9982530552867263    
+2025-05-15 18:29:24,027 - INFO - Iter: 77184    training-loss, overall: 0.9253246188163757    
+2025-05-15 18:29:24,028 - INFO - Iter: 77184    training-metric, acc: 0.96875    training-metric, auc: 0.9923646272635964    training-metric, eer: 0.017130110630110627    training-metric, ap: 0.9980214590700064    
+2025-05-15 18:31:27,358 - INFO - Iter: 77484    training-loss, overall: 0.9567651748657227    
+2025-05-15 18:31:27,359 - INFO - Iter: 77484    training-metric, acc: 0.9675    training-metric, auc: 0.9922394062182224    training-metric, eer: 0.021829725829725834    training-metric, ap: 0.9979244681678582    
+2025-05-15 18:32:43,989 - INFO - ===> Test start!
+2025-05-15 18:32:43,995 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 18:32:56,483 - INFO - dataset: UADFV    step: 77671    testing-loss, overall: 12.677632331848145    
+2025-05-15 18:32:56,485 - INFO - dataset: UADFV    step: 77671    testing-metric, acc: 0.5827686350435625    testing-metric, auc: 0.6078823864573493    testing-metric, eer: 0.4257105943152455    testing-metric, ap: 0.6155438148837008    testing-metric, video_auc: 0.620158267388588    testing-metric, acc_real:0.5736434108527132; acc_fake:0.5918762088974855
+2025-05-15 18:32:56,485 - INFO - ===> Test Done!
+2025-05-15 18:33:43,043 - INFO - Iter: 77784    training-loss, overall: 0.8467614650726318    
+2025-05-15 18:33:43,044 - INFO - Iter: 77784    training-metric, acc: 0.9719791666666666    training-metric, auc: 0.9949195777874189    training-metric, eer: 0.012538840788840787    training-metric, ap: 0.9986180718813513    
+2025-05-15 18:35:46,991 - INFO - Iter: 78084    training-loss, overall: 0.8385921716690063    
+2025-05-15 18:35:46,992 - INFO - Iter: 78084    training-metric, acc: 0.971875    training-metric, auc: 0.9933880184303127    training-metric, eer: 0.016895622895622894    training-metric, ap: 0.9983460142949294    
+2025-05-15 18:37:51,001 - INFO - Iter: 78384    training-loss, overall: 0.9834860563278198    
+2025-05-15 18:37:51,002 - INFO - Iter: 78384    training-metric, acc: 0.96625    training-metric, auc: 0.9928219201117654    training-metric, eer: 0.018393999518999515    training-metric, ap: 0.998058983992795    
+2025-05-15 18:39:54,035 - INFO - Iter: 78684    training-loss, overall: 0.8658648133277893    
+2025-05-15 18:39:54,035 - INFO - Iter: 78684    training-metric, acc: 0.9707291666666666    training-metric, auc: 0.9945978703247442    training-metric, eer: 0.014325637325637323    training-metric, ap: 0.9984553058729951    
+2025-05-15 18:41:57,616 - INFO - Iter: 78984    training-loss, overall: 0.8954061269760132    
+2025-05-15 18:41:57,617 - INFO - Iter: 78984    training-metric, acc: 0.9697916666666667    training-metric, auc: 0.993400088393033    training-metric, eer: 0.01700787135569744    training-metric, ap: 0.9983908152468179    
+2025-05-15 18:44:01,832 - INFO - Iter: 79284    training-loss, overall: 0.9530986547470093    
+2025-05-15 18:44:01,833 - INFO - Iter: 79284    training-metric, acc: 0.9673958333333333    training-metric, auc: 0.9935031377181951    training-metric, eer: 0.020123293373293376    training-metric, ap: 0.9981594272819907    
+2025-05-15 18:46:05,161 - INFO - Iter: 79584    training-loss, overall: 0.8710957169532776    
+2025-05-15 18:46:05,162 - INFO - Iter: 79584    training-metric, acc: 0.97    training-metric, auc: 0.9944967104653445    training-metric, eer: 0.0123524531024531    training-metric, ap: 0.9986496148731638    
+2025-05-15 18:48:07,953 - INFO - Iter: 79884    training-loss, overall: 0.9033892750740051    
+2025-05-15 18:48:07,954 - INFO - Iter: 79884    training-metric, acc: 0.969375    training-metric, auc: 0.9943642629525211    training-metric, eer: 0.01839169164169165    training-metric, ap: 0.9984329458433215    
+2025-05-15 18:50:10,280 - INFO - Iter: 80184    training-loss, overall: 0.8957849144935608    
+2025-05-15 18:50:10,281 - INFO - Iter: 80184    training-metric, acc: 0.9696875    training-metric, auc: 0.99396749335551    training-metric, eer: 0.016029701779701776    training-metric, ap: 0.9984115676775298    
+2025-05-15 18:52:12,919 - INFO - Iter: 80484    training-loss, overall: 0.8941493034362793    
+2025-05-15 18:52:12,920 - INFO - Iter: 80484    training-metric, acc: 0.9697916666666667    training-metric, auc: 0.9937027000615205    training-metric, eer: 0.016735930735930726    training-metric, ap: 0.9982129385528768    
+2025-05-15 18:54:15,765 - INFO - Iter: 80784    training-loss, overall: 0.9306347966194153    
+2025-05-15 18:54:15,766 - INFO - Iter: 80784    training-metric, acc: 0.9684375    training-metric, auc: 0.9927412928027042    training-metric, eer: 0.019292281792281787    training-metric, ap: 0.9978435871091087    
+2025-05-15 18:56:18,767 - INFO - Iter: 81084    training-loss, overall: 0.9961857199668884    
+2025-05-15 18:56:18,768 - INFO - Iter: 81084    training-metric, acc: 0.9655208333333334    training-metric, auc: 0.9944088430779522    training-metric, eer: 0.014552429052429051    training-metric, ap: 0.9984831182034721    
+2025-05-15 18:58:20,976 - INFO - Iter: 81384    training-loss, overall: 0.9062644839286804    
+2025-05-15 18:58:20,977 - INFO - Iter: 81384    training-metric, acc: 0.9694791666666667    training-metric, auc: 0.9942031135369098    training-metric, eer: 0.01846932696932697    training-metric, ap: 0.9984310366597969    
+2025-05-15 19:00:23,288 - INFO - Iter: 81684    training-loss, overall: 0.8370267152786255    
+2025-05-15 19:00:23,289 - INFO - Iter: 81684    training-metric, acc: 0.9716666666666667    training-metric, auc: 0.9938066134251542    training-metric, eer: 0.012367882117882117    training-metric, ap: 0.9983900240918744    
+2025-05-15 19:00:53,900 - INFO - ===> Test start!
+2025-05-15 19:00:53,907 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 19:01:06,428 - INFO - dataset: UADFV    step: 81759    testing-loss, overall: 12.609971046447754    
+2025-05-15 19:01:06,430 - INFO - dataset: UADFV    step: 81759    testing-metric, acc: 0.5947079703130042    testing-metric, auc: 0.7013069420912073    testing-metric, eer: 0.35142118863049093    testing-metric, ap: 0.7025989340194869    testing-metric, video_auc: 0.7313619325281133    testing-metric, acc_real:0.6085271317829457; acc_fake:0.5809155383623469
+2025-05-15 19:01:06,431 - INFO - ===> Test Done!
+2025-05-15 19:01:06,699 - INFO - ===> Epoch[9] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 19:01:06,718 - INFO - ===> Epoch[10] start!
+2025-05-15 19:01:07,179 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/train/FaceForensics++/data_dict_train.pth
+2025-05-15 19:01:08,356 - INFO - Iter: 81760    training-loss, overall: 0.011149279773235321    
+2025-05-15 19:01:08,357 - INFO - Iter: 81760    training-metric, acc: 1.0    training-metric, auc: 1.0    training-metric, eer: 0.0    training-metric, ap: 0.9999999999999999    
+2025-05-15 19:03:12,560 - INFO - Iter: 82060    training-loss, overall: 0.8704414963722229    
+2025-05-15 19:03:12,561 - INFO - Iter: 82060    training-metric, acc: 0.9710416666666667    training-metric, auc: 0.9949147791113273    training-metric, eer: 0.013958393458393458    training-metric, ap: 0.9985706734133059    
+2025-05-15 19:05:16,795 - INFO - Iter: 82360    training-loss, overall: 0.7442830801010132    
+2025-05-15 19:05:16,796 - INFO - Iter: 82360    training-metric, acc: 0.9745833333333334    training-metric, auc: 0.9954040603555177    training-metric, eer: 0.00876218226218226    training-metric, ap: 0.9988442015840681    
+2025-05-15 19:07:20,662 - INFO - Iter: 82660    training-loss, overall: 0.8710169792175293    
+2025-05-15 19:07:20,663 - INFO - Iter: 82660    training-metric, acc: 0.9701041666666667    training-metric, auc: 0.9952336616554148    training-metric, eer: 0.013346597846597847    training-metric, ap: 0.9987352143399814    
+2025-05-15 19:09:25,189 - INFO - Iter: 82960    training-loss, overall: 0.855976402759552    
+2025-05-15 19:09:25,189 - INFO - Iter: 82960    training-metric, acc: 0.9705208333333334    training-metric, auc: 0.9952906484586892    training-metric, eer: 0.014145516319429364    training-metric, ap: 0.9986375654745492    
+2025-05-15 19:11:28,405 - INFO - Iter: 83260    training-loss, overall: 0.8201845288276672    
+2025-05-15 19:11:28,406 - INFO - Iter: 83260    training-metric, acc: 0.9719791666666666    training-metric, auc: 0.9952757241892805    training-metric, eer: 0.01039862914862915    training-metric, ap: 0.9987619465831692    
+2025-05-15 19:13:35,342 - INFO - Iter: 83560    training-loss, overall: 0.8243221640586853    
+2025-05-15 19:13:35,343 - INFO - Iter: 83560    training-metric, acc: 0.9721875    training-metric, auc: 0.9948871303955145    training-metric, eer: 0.019104811854811853    training-metric, ap: 0.9985151501372245    
+2025-05-15 19:15:37,096 - INFO - Iter: 83860    training-loss, overall: 0.7512784004211426    
+2025-05-15 19:15:37,097 - INFO - Iter: 83860    training-metric, acc: 0.9744791666666667    training-metric, auc: 0.996149951104386    training-metric, eer: 0.009436507936507937    training-metric, ap: 0.9989681287909153    
+2025-05-15 19:17:38,778 - INFO - Iter: 84160    training-loss, overall: 0.8765751123428345    
+2025-05-15 19:17:38,779 - INFO - Iter: 84160    training-metric, acc: 0.9703125    training-metric, auc: 0.9956592974374621    training-metric, eer: 0.01050941650941651    training-metric, ap: 0.9988261388783659    
+2025-05-15 19:19:41,413 - INFO - Iter: 84460    training-loss, overall: 1.0029900074005127    
+2025-05-15 19:19:41,414 - INFO - Iter: 84460    training-metric, acc: 0.9659375    training-metric, auc: 0.992617637205113    training-metric, eer: 0.017869611745450677    training-metric, ap: 0.9981436631755245    
+2025-05-15 19:21:43,927 - INFO - Iter: 84760    training-loss, overall: 0.8634990453720093    
+2025-05-15 19:21:43,928 - INFO - Iter: 84760    training-metric, acc: 0.9713541666666666    training-metric, auc: 0.9930839989279285    training-metric, eer: 0.015091792265705312    training-metric, ap: 0.9981819902992978    
+2025-05-15 19:23:47,208 - INFO - Iter: 85060    training-loss, overall: 0.9229105710983276    
+2025-05-15 19:23:47,209 - INFO - Iter: 85060    training-metric, acc: 0.9689583333333334    training-metric, auc: 0.994738780936233    training-metric, eer: 0.014280497280497283    training-metric, ap: 0.9986520017469742    
+2025-05-15 19:25:51,034 - INFO - Iter: 85360    training-loss, overall: 0.7308154702186584    
+2025-05-15 19:25:51,035 - INFO - Iter: 85360    training-metric, acc: 0.9752083333333333    training-metric, auc: 0.9952441655315424    training-metric, eer: 0.013458152958152957    training-metric, ap: 0.998733975531716    
+2025-05-15 19:27:55,329 - INFO - Iter: 85660    training-loss, overall: 0.8601426482200623    
+2025-05-15 19:27:55,330 - INFO - Iter: 85660    training-metric, acc: 0.970625    training-metric, auc: 0.9949087295522436    training-metric, eer: 0.012855418457425143    training-metric, ap: 0.9986221106312317    
+2025-05-15 19:29:12,292 - INFO - ===> Test start!
+2025-05-15 19:29:12,298 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 19:29:25,260 - INFO - dataset: UADFV    step: 85847    testing-loss, overall: 9.619607925415039    
+2025-05-15 19:29:25,262 - INFO - dataset: UADFV    step: 85847    testing-metric, acc: 0.6779606324620845    testing-metric, auc: 0.7587084351681085    testing-metric, eer: 0.312015503875969    testing-metric, ap: 0.7676547339435147    testing-metric, video_auc: 0.7921699291961682    testing-metric, acc_real:0.6776485788113695; acc_fake:0.6782720825274017
+2025-05-15 19:29:25,262 - INFO - ===> Test Done!
+2025-05-15 19:30:12,964 - INFO - Iter: 85960    training-loss, overall: 0.795346736907959    
+2025-05-15 19:30:12,965 - INFO - Iter: 85960    training-metric, acc: 0.9735416666666666    training-metric, auc: 0.9950540331312724    training-metric, eer: 0.01283080808080808    training-metric, ap: 0.9987951029250248    
+2025-05-15 19:32:16,158 - INFO - Iter: 86260    training-loss, overall: 0.7209166884422302    
+2025-05-15 19:32:16,159 - INFO - Iter: 86260    training-metric, acc: 0.9757291666666666    training-metric, auc: 0.9964080988401546    training-metric, eer: 0.007037518037518037    training-metric, ap: 0.9990305084603892    
+2025-05-15 19:34:18,592 - INFO - Iter: 86560    training-loss, overall: 0.7590991258621216    
+2025-05-15 19:34:18,592 - INFO - Iter: 86560    training-metric, acc: 0.9745833333333334    training-metric, auc: 0.9949913042450017    training-metric, eer: 0.012865560365560367    training-metric, ap: 0.9986812880583862    
+2025-05-15 19:36:23,867 - INFO - Iter: 86860    training-loss, overall: 0.8427522778511047    
+2025-05-15 19:36:23,868 - INFO - Iter: 86860    training-metric, acc: 0.9710416666666667    training-metric, auc: 0.9955675011687525    training-metric, eer: 0.013251761245072281    training-metric, ap: 0.9988038134320905    
+2025-05-15 19:38:26,237 - INFO - Iter: 87160    training-loss, overall: 0.8445600867271423    
+2025-05-15 19:38:26,238 - INFO - Iter: 87160    training-metric, acc: 0.9710416666666667    training-metric, auc: 0.9947564148628809    training-metric, eer: 0.014765910015910015    training-metric, ap: 0.9985712712383973    
+2025-05-15 19:40:29,959 - INFO - Iter: 87460    training-loss, overall: 1.0077414512634277    
+2025-05-15 19:40:29,960 - INFO - Iter: 87460    training-metric, acc: 0.9652083333333333    training-metric, auc: 0.9930234067656242    training-metric, eer: 0.018828440078440076    training-metric, ap: 0.9981145449366471    
+2025-05-15 19:42:34,288 - INFO - Iter: 87760    training-loss, overall: 0.9277607202529907    
+2025-05-15 19:42:34,289 - INFO - Iter: 87760    training-metric, acc: 0.9695833333333334    training-metric, auc: 0.9931151570372566    training-metric, eer: 0.018134559606131518    training-metric, ap: 0.9981825363382599    
+2025-05-15 19:44:36,685 - INFO - Iter: 88060    training-loss, overall: 0.8767316937446594    
+2025-05-15 19:44:36,685 - INFO - Iter: 88060    training-metric, acc: 0.9696875    training-metric, auc: 0.9947043677693103    training-metric, eer: 0.012377344877344876    training-metric, ap: 0.9986545675962671    
+2025-05-15 19:46:38,070 - INFO - Iter: 88360    training-loss, overall: 0.8547254800796509    
+2025-05-15 19:46:38,070 - INFO - Iter: 88360    training-metric, acc: 0.9709375    training-metric, auc: 0.9946285835170293    training-metric, eer: 0.013706349206349205    training-metric, ap: 0.9986203884853982    
+2025-05-15 19:48:40,058 - INFO - Iter: 88660    training-loss, overall: 0.7711992859840393    
+2025-05-15 19:48:40,059 - INFO - Iter: 88660    training-metric, acc: 0.9735416666666666    training-metric, auc: 0.9943554297948564    training-metric, eer: 0.012415260665260667    training-metric, ap: 0.9987034576297071    
+2025-05-15 19:50:42,094 - INFO - Iter: 88960    training-loss, overall: 0.8675565719604492    
+2025-05-15 19:50:42,095 - INFO - Iter: 88960    training-metric, acc: 0.9703125    training-metric, auc: 0.9941785697685367    training-metric, eer: 0.013377261627261626    training-metric, ap: 0.9985148690101073    
+2025-05-15 19:52:44,466 - INFO - Iter: 89260    training-loss, overall: 0.6452915668487549    
+2025-05-15 19:52:44,467 - INFO - Iter: 89260    training-metric, acc: 0.9780208333333333    training-metric, auc: 0.996761068043442    training-metric, eer: 0.00611904761904762    training-metric, ap: 0.9991719753453264    
+2025-05-15 19:54:46,456 - INFO - Iter: 89560    training-loss, overall: 0.8743302822113037    
+2025-05-15 19:54:46,457 - INFO - Iter: 89560    training-metric, acc: 0.9702083333333333    training-metric, auc: 0.9950822403997845    training-metric, eer: 0.011375901875901878    training-metric, ap: 0.9986810600179941    
+2025-05-15 19:56:48,343 - INFO - Iter: 89860    training-loss, overall: 0.8443887829780579    
+2025-05-15 19:56:48,344 - INFO - Iter: 89860    training-metric, acc: 0.971875    training-metric, auc: 0.9942705395386272    training-metric, eer: 0.015871970621970627    training-metric, ap: 0.9984119743159795    
+2025-05-15 19:57:18,904 - INFO - ===> Test start!
+2025-05-15 19:57:18,910 - INFO - data_dict saved to /data/Btask/DeepfakeBench/training/log/srm/srm_2025-05-15-09-35-59/test/UADFV/data_dict_test.pth
+2025-05-15 19:57:31,435 - INFO - dataset: UADFV    step: 89935    testing-loss, overall: 11.165963172912598    
+2025-05-15 19:57:31,437 - INFO - dataset: UADFV    step: 89935    testing-metric, acc: 0.6360116166505324    testing-metric, auc: 0.7787971667857863    testing-metric, eer: 0.28811369509043927    testing-metric, ap: 0.7550276938154719    testing-metric, video_auc: 0.8054977092877967    testing-metric, acc_real:0.6472868217054264; acc_fake:0.6247582205029013
+2025-05-15 19:57:31,437 - INFO - ===> Test Done!
+2025-05-15 19:57:31,680 - INFO - ===> Epoch[10] end with testing auc: 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================!
+2025-05-15 19:57:31,681 - INFO - Stop Training on best Testing metric 
+================================ Each dataset best metric ================================ 
+| UADFV:  auc=0.8407947610693776 | 
+=============================================================================================

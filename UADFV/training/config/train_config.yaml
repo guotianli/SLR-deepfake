@@ -1,0 +1,48 @@
+mode: train
+lmdb: False
+dry_run: false
+dataset_root_rgb: './datasets'
+lmdb_dir:  'I:\transform_2_lmdb'
+SWA: False
+compression: c23  # compression-level for videos
+dataset_json_folder: '/data/Btask/DeepfakeBench/preprocessing/dataset_json_Counter'
+
+
+label_dict:
+  'real': 0
+  'FF_NeuralTextures': 1
+  'FF_FaceSwap': 2
+  'FF_FaceShifter': 3
+  'FF_Face2Face': 4
+  'FF_DeepFakeDetection': 5
+  'DFDCP_methodA': 6
+  'DFDCP_methodB': 7
+  'Celeb-DF-v1': 8
+  'Celeb-DF-v2': 9
+  'UADFV': 10
+  'DiT': 11
+  'MRAA': 12
+  'RDDM': 13
+  'SiT': 14
+  'StyleGAN2': 15
+  'StyleGAN3': 16
+  'VQGAN': 17
+  'blendface': 18
+  'danet': 19
+  'ddim': 20
+  'e4s': 21
+  'facedancer': 22
+  'facevid2vid': 23
+  'fomm': 24
+  'fsgan': 25
+  'inswap': 26
+  'lia': 27
+  'mcnet': 28
+  'mobileswap': 29
+  'one_shot_free': 30
+  'pirender': 31
+  'sadtalker': 32
+  'simswap': 33
+  'tpsm': 34
+  'uniface': 35
+  'wav2lip': 36
