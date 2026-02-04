@@ -24,7 +24,9 @@ Using Deep Learning Features》的代码、数据集及完整处理流程，用�
 3. 训练网络：
    - 步骤：训练在验证集上表现好的网络，有良好的二分类性能，这样提取的npy文件可以区分real和fake类的特征，训练结果保存为pth文件保存在UADFV/weights文件夹下
    - 对应代码：UADFV/training/train.py
-4. 测试网络，结果保存到UADFV/training/npy文件夹中
+4. 测试网络，结果保存到UADFV/training/npy文件夹中，The weights folder is located under the training directory. You can download it via the following link:
+Link: https://pan.baidu.com/s/1rH0GsLAF59leJAZ6dYyGcw
+Extraction Code: kxd6
    - 步骤：利用pth测试测试集
    - 对应代码：test_0501_srm_img.py
 5.查看npy文件的形状 
@@ -50,6 +52,5 @@ Using Deep Learning Features》的代码、数据集及完整处理流程，用�
 
 ## 3. 复现步骤
 1. 克隆仓库：`git clone https://github.com/guotianli/SLR-deepfake.git`
-2. 安装依赖：`pip install -r requirements.txt`
-3. 按顺序运行脚本，有写死的文件路径根据本地路径修改
-4. 结果输出
+2. 按顺序运行脚本，有写死的文件路径根据本地路径修改
+3. 结果输出

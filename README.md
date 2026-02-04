@@ -23,7 +23,9 @@ This project includes the code, dataset and complete processing flow of the pape
 3. Train the network:
 - Steps: Train the network that performs well on the validation set, with good binary classification performance. This allows the extracted npy files to distinguish the features of real and fake classes. The training results are saved as a pth file in the UADFV/weights folder
 - Corresponding code: UADFV/training/train.py
-4. Test the network, results saved to UADFV/training/npy folder
+4. Test the network, results saved to UADFV/training/npy folder，The weights folder is located under the training directory. You can download it via the following link:
+Link: https://pan.baidu.com/s/1rH0GsLAF59leJAZ6dYyGcw
+Extraction Code: kxd6
 - Steps: Use the pth to test the test set
 - Corresponding code: test_0501_srm_img.py
 5. View the shape of the npy file
@@ -49,6 +51,5 @@ This project includes the code, dataset and complete processing flow of the pape
 
 ## 3. Replication Steps
 1. Clone the repository: `git clone https://github.com/guotianli/SLR-deepfake.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the scripts in sequence. For hardcoded file paths, modify them according to the local path.
-4. Output the results
+2. Run the scripts in sequence. For hardcoded file paths, modify them according to the local path.
+3. Output the results
