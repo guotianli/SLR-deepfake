@@ -1,0 +1,6 @@
+Dataset Name: Val
+Processing Time: 2025-08-30 11:10:43
+Hp (real-real, Same Source) Sample Count: 200
+Hd (real-fake, Different Source) Sample Count: 200
+Equal Error Rate (EER): 0.030000
+EER Corresponding Threshold (LogLR): -0.763072

@@ -1,0 +1,6 @@
+Dataset Name: Train
+Processing Time: 2025-08-30 11:10:42
+Hp (real-real, Same Source) Sample Count: 1083
+Hd (real-fake, Different Source) Sample Count: 1083
+Equal Error Rate (EER): 0.013850
+EER Corresponding Threshold (LogLR): -0.304241

@@ -1,0 +1,20 @@
+{
+    "method": "PAV Algorithm (Isotonic Regression)",
+    "lr_definition": "LR = Hp/Hd, where Hp=real-real, Hd=real-fake",
+    "metrics": {
+        "ece_improvement": 0.005550411706429307,
+        "cllr": 0.012820512962932726,
+        "auc": 0.9999178172255095,
+        "cllr_original": 0.020187917904295756,
+        "auc_original": 0.9998767258382644
+    },
+    "sample_counts": {
+        "Hp (real-real)": 156,
+        "Hd (real-fake)": 156
+    },
+    "paths": {
+        "results": "./8ECE/calibrated_results\\calibrated_pav_algorithm.csv",
+        "model": "./8ECE/models\\calibrator_pav_algorithm.joblib",
+        "plot": "./8ECE/plots/ECE_PAV_Algorithm_with_Vertical_Zoom.tiff"
+    }
+}

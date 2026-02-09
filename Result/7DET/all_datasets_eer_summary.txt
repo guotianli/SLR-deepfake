@@ -1,0 +1,22 @@
+===== DET Curve & EER Summary for All Datasets =====
+Summary Generated Time: 2025-08-30 11:10:43
+Core Definition: Hp=real-real (Same Source), Hd=real-fake (Different Source)
+
+1. Train Dataset:
+   - Hp Sample Count: 1083
+   - Hd Sample Count: 1083
+   - Equal Error Rate (EER): 0.013850
+   - EER Corresponding Threshold (LogLR): -0.304241
+
+1. Val Dataset:
+   - Hp Sample Count: 200
+   - Hd Sample Count: 200
+   - Equal Error Rate (EER): 0.030000
+   - EER Corresponding Threshold (LogLR): -0.763072
+
+1. Test Dataset:
+   - Hp Sample Count: 156
+   - Hd Sample Count: 156
+   - Equal Error Rate (EER): 0.019231
+   - EER Corresponding Threshold (LogLR): -0.175752
+
